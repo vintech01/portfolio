@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vinay Prajapat — Cyber Security Analyst</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0;scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;background:#060d17;color:#e2e8f0;overflow-x:hidden}
+
+/* ─── SCROLLBAR ─── */
+::-webkit-scrollbar{width:5px}
+::-webkit-scrollbar-track{background:#0f1b2d}
+::-webkit-scrollbar-thumb{background:#2563eb;border-radius:10px}
+
+/* ─── NAV ─── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(6,13,23,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(255,255,255,0.05);padding:0 2rem}
+.nav-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;height:60px}
+.nav-logo{font-size:16px;font-weight:600;color:#fff;text-decoration:none;letter-spacing:-0.3px}
+.nav-logo span{color:#2563eb}
+.nav-links{display:flex;gap:2rem;list-style:none}
+.nav-links a{font-size:13px;color:#94a3b8;text-decoration:none;transition:color 0.2s;font-weight:500}
+.nav-links a:hover,.nav-links a.active{color:#fff}
+.nav-cta{font-size:12px;font-weight:600;padding:7px 18px;background:#2563eb;color:#fff;border-radius:6px;text-decoration:none;transition:background 0.2s}
+.nav-cta:hover{background:#1d4ed8}
+
+/* ─── HERO ─── */
+#hero{min-height:100vh;display:flex;align-items:center;padding:0 2rem;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 60% 40%,rgba(37,99,235,0.12) 0%,transparent 70%)}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(37,99,235,0.04) 1px,transparent 1px),linear-gradient(90deg,rgba(37,99,235,0.04) 1px,transparent 1px);background-size:50px 50px}
+.hero-inner{max-width:1100px;margin:0 auto;width:100%;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;position:relative;z-index:1}
+.hero-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#60a5fa;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);padding:5px 14px;border-radius:20px;margin-bottom:1.25rem}
+.hero-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:#60a5fa;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.3}}
+.hero-name{font-size:48px;font-weight:700;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:0.75rem}
+.hero-name span{color:#2563eb}
+.hero-role{font-size:16px;color:#94a3b8;margin-bottom:1.5rem;line-height:1.6}
+.hero-role strong{color:#cbd5e1;font-weight:500}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:2rem}
+.badge{font-size:11px;font-weight:500;padding:4px 12px;border-radius:20px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);color:#94a3b8}
+.badge.blue{background:rgba(37,99,235,0.12);border-color:rgba(37,99,235,0.3);color:#93c5fd}
+.hero-btns{display:flex;gap:12px}
+.btn-primary{font-size:13px;font-weight:600;padding:11px 24px;background:#2563eb;color:#fff;border-radius:8px;text-decoration:none;transition:all 0.2s;border:none;cursor:pointer}
+.btn-primary:hover{background:#1d4ed8;transform:translateY(-1px)}
+.btn-outline{font-size:13px;font-weight:500;padding:11px 24px;background:transparent;color:#e2e8f0;border-radius:8px;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:all 0.2s;cursor:pointer}
+.btn-outline:hover{border-color:rgba(255,255,255,0.3);background:rgba(255,255,255,0.04)}
+.hero-right{display:flex;justify-content:center;align-items:center}
+.hero-card{background:rgba(15,27,45,0.8);border:1px solid rgba(255,255,255,0.08);border-radius:16px;padding:2rem;width:100%;max-width:340px;backdrop-filter:blur(10px)}
+.hero-avatar{width:80px;height:80px;border-radius:50%;background:#1e3a5f;border:3px solid rgba(96,165,250,0.35);display:flex;align-items:center;justify-content:center;font-size:26px;font-weight:700;color:#93c5fd;margin:0 auto 1.25rem;letter-spacing:1px}
+.hero-card-name{text-align:center;font-size:15px;font-weight:600;color:#fff;margin-bottom:3px}
+.hero-card-title{text-align:center;font-size:11px;color:#64748b;margin-bottom:1.25rem;text-transform:uppercase;letter-spacing:0.8px}
+.hero-stats{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1px;background:rgba(255,255,255,0.06);border-radius:10px;overflow:hidden;margin-bottom:1.25rem}
+.stat{background:#0f1b2d;padding:12px 8px;text-align:center}
+.stat-num{font-size:18px;font-weight:700;color:#60a5fa;display:block}
+.stat-label{font-size:10px;color:#64748b;margin-top:2px}
+.hero-card-certs{display:flex;flex-direction:column;gap:6px}
+.cert-row{display:flex;align-items:center;gap:8px;padding:7px 10px;background:rgba(37,99,235,0.08);border:1px solid rgba(37,99,235,0.15);border-radius:8px}
+.cert-dot{width:6px;height:6px;border-radius:50%;background:#2563eb;flex-shrink:0}
+.cert-text{font-size:11px;color:#93c5fd;font-weight:500}
+
+/* ─── SECTIONS SHARED ─── */
+section{padding:5rem 2rem}
+.section-inner{max-width:1100px;margin:0 auto}
+.section-label{font-size:10px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:#2563eb;margin-bottom:8px}
+.section-heading{font-size:32px;font-weight:700;color:#fff;letter-spacing:-0.5px;margin-bottom:1rem}
+.section-sub{font-size:14px;color:#64748b;max-width:500px;line-height:1.7;margin-bottom:3rem}
+.divider{width:40px;height:3px;background:#2563eb;border-radius:2px;margin-bottom:2.5rem}
+
+/* ─── ABOUT ─── */
+#about{background:#080f1c}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.about-text{font-size:14px;color:#94a3b8;line-height:1.85;margin-bottom:1.25rem}
+.about-highlights{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:1.5rem}
+.highlight-card{background:#0f1b2d;border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:14px 16px}
+.highlight-icon{font-size:20px;color:#2563eb;margin-bottom:8px}
+.highlight-title{font-size:12px;font-weight:600;color:#e2e8f0;margin-bottom:3px}
+.highlight-text{font-size:11px;color:#64748b;line-height:1.5}
+.about-right{}
+.info-row{display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid rgba(255,255,255,0.05);font-size:13px}
+.info-row:last-child{border-bottom:none}
+.info-key{color:#64748b;font-weight:500}
+.info-val{color:#e2e8f0;text-align:right}
+.info-val a{color:#60a5fa;text-decoration:none}
+
+/* ─── SKILLS ─── */
+#skills{background:#060d17}
+.skills-rows{}
+.skill-row-item{display:flex;align-items:flex-start;gap:0;border-bottom:1px solid rgba(255,255,255,0.05);padding:14px 0}
+.skill-row-item:last-child{border-bottom:none}
+.skill-cat{font-size:11px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.6px;width:200px;flex-shrink:0;padding-top:5px}
+.skill-pills{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.skill-pill{font-size:11px;padding:4px 11px;border-radius:6px;background:#0f1b2d;border:1px solid rgba(255,255,255,0.08);color:#94a3b8;transition:all 0.2s}
+.skill-pill:hover{border-color:rgba(37,99,235,0.4);color:#93c5fd;background:rgba(37,99,235,0.08)}
+.skill-pill.hot{background:rgba(37,99,235,0.1);border-color:rgba(37,99,235,0.3);color:#93c5fd}
+
+/* ─── EXPERIENCE ─── */
+#experience{background:#080f1c}
+.timeline{}
+.tl-item{display:grid;grid-template-columns:180px 1fr;gap:2rem;padding:2rem 0;border-bottom:1px solid rgba(255,255,255,0.05);position:relative}
+.tl-item:last-child{border-bottom:none}
+.tl-left{}
+.tl-date{font-size:11px;font-weight:600;color:#2563eb;margin-bottom:4px}
+.tl-company{font-size:12px;color:#64748b;line-height:1.5}
+.tl-right{}
+.tl-role{font-size:16px;font-weight:600;color:#fff;margin-bottom:6px}
+.tl-location{font-size:11px;color:#475569;margin-bottom:12px;display:flex;align-items:center;gap:5px}
+.tl-bullets{list-style:none;padding:0}
+.tl-bullets li{font-size:13px;color:#94a3b8;line-height:1.7;padding:3px 0 3px 16px;position:relative}
+.tl-bullets li::before{content:'▸';position:absolute;left:0;color:#2563eb;font-size:11px;top:5px}
+
+/* ─── CERTIFICATIONS ─── */
+#certifications{background:#060d17}
+.certs-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.cert-card-port{background:#0f1b2d;border:1px solid rgba(255,255,255,0.07);border-radius:12px;padding:1.5rem;transition:all 0.2s;position:relative;overflow:hidden}
+.cert-card-port::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:#2563eb;border-radius:2px 2px 0 0}
+.cert-card-port:hover{border-color:rgba(37,99,235,0.3);transform:translateY(-2px)}
+.cert-abbr-port{font-size:22px;font-weight:700;color:#60a5fa;margin-bottom:6px}
+.cert-name-port{font-size:13px;font-weight:500;color:#e2e8f0;margin-bottom:6px}
+.cert-issuer{font-size:11px;color:#475569}
+
+/* ─── RESUME SECTION ─── */
+#resume{background:#080f1c}
+.resume-frame-wrap{border:1px solid rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;background:#f3f4f6}
+.resume-toolbar{background:#0f1b2d;border-bottom:1px solid rgba(255,255,255,0.06);padding:10px 16px;display:flex;justify-content:space-between;align-items:center}
+.resume-toolbar-title{font-size:12px;color:#64748b;font-weight:500}
+.resume-toolbar-dots{display:flex;gap:6px}
+.dot-red{width:10px;height:10px;border-radius:50%;background:#ef4444;opacity:0.6}
+.dot-yellow{width:10px;height:10px;border-radius:50%;background:#eab308;opacity:0.6}
+.dot-green{width:10px;height:10px;border-radius:50%;background:#22c55e;opacity:0.6}
+.resume-iframe{width:100%;height:900px;border:none;display:block}
+.resume-actions{display:flex;gap:12px;margin-top:1.5rem;justify-content:flex-end}
+
+/* ─── CONTACT ─── */
+#contact{background:#060d17}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start}
+.contact-info{display:flex;flex-direction:column;gap:16px;margin-top:2rem}
+.contact-item{display:flex;align-items:center;gap:14px;padding:14px 16px;background:#0f1b2d;border:1px solid rgba(255,255,255,0.06);border-radius:10px}
+.contact-item i{font-size:20px;color:#2563eb;width:24px;text-align:center}
+.contact-detail{}
+.contact-label{font-size:10px;color:#475569;text-transform:uppercase;letter-spacing:0.8px;font-weight:600;margin-bottom:2px}
+.contact-value{font-size:13px;color:#e2e8f0}
+.contact-value a{color:#60a5fa;text-decoration:none}
+.contact-form{background:#0f1b2d;border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:2rem}
+.form-group{margin-bottom:1rem}
+.form-label{font-size:11px;color:#64748b;text-transform:uppercase;letter-spacing:0.6px;font-weight:600;margin-bottom:6px;display:block}
+.form-input{width:100%;background:#060d17;border:1px solid rgba(255,255,255,0.08);border-radius:8px;padding:10px 14px;font-size:13px;color:#e2e8f0;font-family:inherit;outline:none;transition:border-color 0.2s}
+.form-input:focus{border-color:rgba(37,99,235,0.5)}
+textarea.form-input{resize:vertical;min-height:110px}
+.form-input::placeholder{color:#334155}
+
+/* ─── FOOTER ─── */
+footer{background:#040a12;border-top:1px solid rgba(255,255,255,0.05);padding:2rem;text-align:center}
+.footer-text{font-size:12px;color:#334155}
+.footer-text span{color:#2563eb}
+
+/* ─── ACTIVE NAV ─── */
+.nav-links a.active{color:#fff}
+
+/* ─── HAMBURGER ─── */
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px;background:none;border:none}
+.hamburger span{width:22px;height:2px;background:#e2e8f0;border-radius:2px;transition:all 0.3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;top:60px;left:0;right:0;background:rgba(6,13,23,0.98);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,0.07);z-index:99;padding:1rem 0}
+.mobile-menu.open{display:block}
+.mobile-menu a{display:block;padding:12px 2rem;font-size:14px;color:#94a3b8;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.04)}
+.mobile-menu a:last-child{border-bottom:none;color:#60a5fa;font-weight:600}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:768px){
+  /* Nav */
+  .nav-links{display:none}
+  .nav-cta{display:none}
+  .hamburger{display:flex}
+
+  /* Hero */
+  #hero{padding:5rem 1.25rem 3rem;min-height:auto}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-name{font-size:36px}
+  .hero-role{font-size:14px}
+  .hero-right{display:none}
+  .hero-btns{flex-direction:column;gap:10px}
+  .btn-primary,.btn-outline{text-align:center}
+
+  /* Sections */
+  section{padding:3rem 1.25rem}
+  .section-heading{font-size:24px}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:2rem}
+  .about-highlights{grid-template-columns:1fr 1fr}
+
+  /* Skills */
+  .skill-row-item{flex-direction:column;gap:8px}
+  .skill-cat{width:100%;padding-top:0}
+
+  /* Experience */
+  .tl-item{grid-template-columns:1fr;gap:0.5rem}
+  .tl-left{padding-bottom:4px}
+
+  /* Certifications */
+  .certs-grid{grid-template-columns:1fr 1fr}
+
+  /* Resume iframe */
+  .resume-iframe{height:500px}
+  .resume-actions{flex-direction:column;align-items:stretch}
+  .resume-actions a{text-align:center}
+
+  /* Contact */
+  .contact-grid{grid-template-columns:1fr;gap:2rem}
+}
+
+@media(max-width:480px){
+  .hero-name{font-size:30px}
+  .about-highlights{grid-template-columns:1fr}
+  .certs-grid{grid-template-columns:1fr}
+  .hero-badges{gap:6px}
+  .section-heading{font-size:22px}
+  nav{padding:0 1.25rem}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a class="nav-logo" href="#hero">VP<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#certifications">Certifications</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="#contact">Hire Me</a>
+    <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#about" class="mob-link">About</a>
+  <a href="#skills" class="mob-link">Skills</a>
+  <a href="#experience" class="mob-link">Experience</a>
+  <a href="#certifications" class="mob-link">Certifications</a>
+  <a href="#resume" class="mob-link">Resume</a>
+  <a href="#contact" class="mob-link">Hire Me</a>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-inner">
+    <div>
+      <div class="hero-tag">Available for Opportunities</div>
+      <div class="hero-name">Vinay<br><span>Prajapat</span></div>
+      <div class="hero-role">
+        <strong>Cyber Security Analyst</strong> specializing in VAPT, Red Team Operations &amp; Payment Gateway Security. Based in India — open to <strong>US &amp; EU</strong> opportunities.
+      </div>
+      <div class="hero-badges">
+        <span class="badge blue">CEH Master</span>
+        <span class="badge blue">CRTO</span>
+        <span class="badge blue">CND</span>
+        <span class="badge">OWASP</span>
+        <span class="badge">PCI-DSS</span>
+        <span class="badge">ISO 27001</span>
+      </div>
+      <div class="hero-btns">
+        <a class="btn-primary" href="#resume">View Resume</a>
+        <a class="btn-outline" href="#contact">Get in Touch</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-avatar">VP</div>
+        <div class="hero-card-name">Vinay Prajapat</div>
+        <div class="hero-card-title">VAPT Specialist · Red Team Operator</div>
+        <div class="hero-stats">
+          <div class="stat"><span class="stat-num">3+</span><div class="stat-label">Years Exp.</div></div>
+          <div class="stat"><span class="stat-num">50+</span><div class="stat-label">Apps Tested</div></div>
+          <div class="stat"><span class="stat-num">6</span><div class="stat-label">Certs</div></div>
+        </div>
+        <div class="hero-card-certs">
+          <div class="cert-row"><div class="cert-dot"></div><span class="cert-text">CEH Master (Practical)</span></div>
+          <div class="cert-row"><div class="cert-dot"></div><span class="cert-text">Certified Red Team Operator</span></div>
+          <div class="cert-row"><div class="cert-dot"></div><span class="cert-text">Certified Network Defender</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label">About Me</div>
+    <div class="section-heading">Security-first mindset,<br>offensive skillset.</div>
+    <div class="divider"></div>
+    <div class="about-grid">
+      <div>
+        <p class="about-text">I'm a results-driven Cyber Security Analyst with proven expertise in Web &amp; Android Vulnerability Assessment and Penetration Testing (VAPT), payment gateway security, and network security assessments.</p>
+        <p class="about-text">Adept in OWASP methodologies, red team operations, and compliance frameworks including ISO 27001, PCI-DSS, and GDPR. I hold elite certifications — CEH Master (Practical), CND, and CRTO — with a track record of identifying critical vulnerabilities, developing proof-of-concept exploits, and delivering actionable remediation.</p>
+        <p class="about-text">I've trained 30+ students in VAPT and spoken as a guest expert at Silver Oak University. My work spans payment gateways, Android applications, and enterprise web platforms.</p>
+        <div class="about-highlights">
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="ti ti-shield-check"></i></div>
+            <div class="highlight-title">Web VAPT</div>
+            <div class="highlight-text">SQLi, XSS, IDOR, CSRF, Auth Bypass across production apps</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="ti ti-device-mobile"></i></div>
+            <div class="highlight-title">Mobile Security</div>
+            <div class="highlight-text">Android VAPT, APK reversing, Frida, SSL pinning bypass</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="ti ti-crosshair"></i></div>
+            <div class="highlight-title">Red Team</div>
+            <div class="highlight-text">C2 ops, AD attacks, lateral movement, Cobalt Strike</div>
+          </div>
+          <div class="highlight-card">
+            <div class="highlight-icon"><i class="ti ti-credit-card"></i></div>
+            <div class="highlight-title">Payment Security</div>
+            <div class="highlight-text">PCI-DSS compliance, tokenization, transaction flow testing</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-right">
+        <div class="info-row"><span class="info-key">Full Name</span><span class="info-val">Vinay Prajapat</span></div>
+        <div class="info-row"><span class="info-key">Role</span><span class="info-val">VAPT Consultant</span></div>
+        <div class="info-row"><span class="info-key">Company</span><span class="info-val">Cyraac Services Pvt. Ltd.</span></div>
+        <div class="info-row"><span class="info-key">Location</span><span class="info-val">Bengaluru, India</span></div>
+        <div class="info-row"><span class="info-key">Open To</span><span class="info-val">US &amp; EU Relocation</span></div>
+        <div class="info-row"><span class="info-key">Email</span><span class="info-val"><a href="mailto:vinayprajapat567@gmail.com">vinayprajapat567@gmail.com</a></span></div>
+        <div class="info-row"><span class="info-key">Phone</span><span class="info-val">+91 7014118643</span></div>
+        <div class="info-row"><span class="info-key">LinkedIn</span><span class="info-val"><a href="https://linkedin.com/in/vinay-prajapat-a12502209" target="_blank">vinay-prajapat</a></span></div>
+        <div class="info-row"><span class="info-key">Education</span><span class="info-val">MCA — Cyber Security</span></div>
+        <div class="info-row"><span class="info-key">Availability</span><span class="info-val" style="color:#22c55e">Open to Work</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-label">Expertise</div>
+    <div class="section-heading">Technical Skills</div>
+    <div class="divider"></div>
+    <div class="skills-rows">
+      <div class="skill-row-item">
+        <div class="skill-cat">Offensive Security</div>
+        <div class="skill-pills">
+          <span class="skill-pill hot">Web Application VAPT</span>
+          <span class="skill-pill hot">Red Team Operations</span>
+          <span class="skill-pill hot">Network Penetration Testing</span>
+          <span class="skill-pill">Exploit Development</span>
+          <span class="skill-pill">Privilege Escalation</span>
+          <span class="skill-pill">Lateral Movement</span>
+          <span class="skill-pill">C2 Infrastructure</span>
+          <span class="skill-pill">Phishing Campaigns</span>
+          <span class="skill-pill">Active Directory Attacks</span>
+          <span class="skill-pill">Business Logic Testing</span>
+          <span class="skill-pill">Payment Gateway Security</span>
+          <span class="skill-pill">Secure Code Review</span>
+          <span class="skill-pill">Threat Modelling</span>
+        </div>
+      </div>
+      <div class="skill-row-item">
+        <div class="skill-cat">Security Tools</div>
+        <div class="skill-pills">
+          <span class="skill-pill hot">Burp Suite Pro</span>
+          <span class="skill-pill hot">Metasploit Framework</span>
+          <span class="skill-pill hot">Cobalt Strike</span>
+          <span class="skill-pill">Nmap</span>
+          <span class="skill-pill">Nuclei</span>
+          <span class="skill-pill">Nessus</span>
+          <span class="skill-pill">SQLmap</span>
+          <span class="skill-pill">Nikto</span>
+          <span class="skill-pill">OWASP ZAP</span>
+          <span class="skill-pill">Wireshark</span>
+          <span class="skill-pill">Mimikatz</span>
+          <span class="skill-pill">BloodHound</span>
+          <span class="skill-pill">Responder</span>
+          <span class="skill-pill">Hashcat</span>
+          <span class="skill-pill">John the Ripper</span>
+          <span class="skill-pill">Postman</span>
+        </div>
+      </div>
+      <div class="skill-row-item">
+        <div class="skill-cat">Frameworks &amp; Standards</div>
+        <div class="skill-pills">
+          <span class="skill-pill hot">OWASP Top 10</span>
+          <span class="skill-pill hot">MITRE ATT&amp;CK</span>
+          <span class="skill-pill hot">PCI-DSS</span>
+          <span class="skill-pill">ISO 27001</span>
+          <span class="skill-pill">GDPR</span>
+          <span class="skill-pill">NIST CSF</span>
+          <span class="skill-pill">CVE / CVSS</span>
+          <span class="skill-pill">Kill Chain</span>
+        </div>
+      </div>
+      <div class="skill-row-item">
+        <div class="skill-cat">Mobile Security</div>
+        <div class="skill-pills">
+          <span class="skill-pill hot">Android VAPT</span>
+          <span class="skill-pill hot">APK Reverse Engineering</span>
+          <span class="skill-pill hot">Frida</span>
+          <span class="skill-pill hot">Drozer</span>
+          <span class="skill-pill">MobSF</span>
+          <span class="skill-pill">SSL Pinning Bypass</span>
+          <span class="skill-pill">Jadx</span>
+          <span class="skill-pill">Apktool</span>
+          <span class="skill-pill">Runtime Hooking</span>
+          <span class="skill-pill">Insecure Storage Testing</span>
+          <span class="skill-pill">Weak Cryptography Analysis</span>
+        </div>
+      </div>
+      <div class="skill-row-item">
+        <div class="skill-cat">Programming Languages</div>
+        <div class="skill-pills">
+          <span class="skill-pill hot">Python</span>
+          <span class="skill-pill hot">Bash / Shell</span>
+          <span class="skill-pill">JavaScript</span>
+          <span class="skill-pill">PHP</span>
+          <span class="skill-pill">C / C++</span>
+          <span class="skill-pill">PowerShell</span>
+          <span class="skill-pill">SQL</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-label">Career</div>
+    <div class="section-heading">Professional Experience</div>
+    <div class="divider"></div>
+    <div class="timeline">
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Apr 2025 – Present</div>
+          <div class="tl-company">Cyraac Services Pvt. Ltd.<br>Bengaluru, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">VAPT Consultant</div>
+          <ul class="tl-bullets">
+            <li>Conducted end-to-end security testing of payment gateway integrations — validating transaction workflows, authentication, input validation, and sensitive data handling.</li>
+            <li>Performed Web Application VAPT aligned with OWASP Top 10, identifying SQLi, XSS, IDOR, CSRF, and broken authentication flaws across production-grade applications.</li>
+            <li>Executed Android VAPT including APK reverse engineering, static analysis via MobSF, and dynamic runtime testing with Frida and Drozer.</li>
+            <li>Assessed payment gateway controls for PCI-DSS compliance: validated encryption, tokenization, session management, and cardholder data protection.</li>
+            <li>Developed reproducible PoC exploits and authored VAPT reports with CVSS severity classification and remediation roadmaps.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jun 2024 – Feb 2025</div>
+          <div class="tl-company">Demmisto Technologies Pvt. Ltd.<br>Ahmedabad, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Cyber Security Analyst</div>
+          <ul class="tl-bullets">
+            <li>Performed security and performance testing for enterprise web applications, identifying misconfigurations and exploitable vulnerabilities in high-traffic environments.</li>
+            <li>Designed and executed load and stress test scenarios, improving transaction throughput efficiency by 20%.</li>
+            <li>Delivered structured VAPT, network security, and OWASP training to postgraduate students at Silver Oak University.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Nov 2023 – May 2024</div>
+          <div class="tl-company">ASD Cyber Security<br>Kota, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Junior Penetration Tester (Intern)</div>
+          <ul class="tl-bullets">
+            <li>Designed and executed security testing protocols across 50+ web applications and network environments, identifying high and critical severity vulnerabilities.</li>
+            <li>Used OWASP ZAP and JMeter for application security and performance assessments, improving client compliance posture by 30%.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-left">
+          <div class="tl-date">Jul 2023 – May 2024</div>
+          <div class="tl-company">CADD Centre<br>Jaipur, India</div>
+        </div>
+        <div class="tl-right">
+          <div class="tl-role">Cyber Security Trainer</div>
+          <ul class="tl-bullets">
+            <li>Delivered hands-on VAPT and performance testing training to 30+ students, bridging academic knowledge with industry practices.</li>
+            <li>Designed test plans covering real-world VAPT scenarios to build practical expertise among trainees.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-label">Credentials</div>
+    <div class="section-heading">Certifications</div>
+    <div class="divider"></div>
+    <div class="certs-grid">
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">CEH Master</div>
+        <div class="cert-name-port">Certified Ethical Hacker Master</div>
+        <div class="cert-issuer">EC-Council</div>
+      </div>
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">CEH Practical</div>
+        <div class="cert-name-port">Certified Ethical Hacker Practical</div>
+        <div class="cert-issuer">EC-Council</div>
+      </div>
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">CRTO</div>
+        <div class="cert-name-port">Certified Red Team Operator</div>
+        <div class="cert-issuer">Zero-Point Security</div>
+      </div>
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">CND</div>
+        <div class="cert-name-port">Certified Network Defender</div>
+        <div class="cert-issuer">EC-Council</div>
+      </div>
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">VAPT</div>
+        <div class="cert-name-port">VAPT Training Certification</div>
+        <div class="cert-issuer">Industry Certification</div>
+      </div>
+      <div class="cert-card-port">
+        <div class="cert-abbr-port">Red Team Ops</div>
+        <div class="cert-name-port">Red Team Operations</div>
+        <div class="cert-issuer">Industry Certification</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+  <div class="section-inner">
+    <div class="section-label">Document</div>
+    <div class="section-heading">My Resume</div>
+    <div class="divider"></div>
+    <div class="resume-frame-wrap">
+      <div class="resume-toolbar">
+        <div class="resume-toolbar-dots">
+          <div class="dot-red"></div>
+          <div class="dot-yellow"></div>
+          <div class="dot-green"></div>
+        </div>
+        <div class="resume-toolbar-title">vinay_prajapat_resume.html</div>
+        <div></div>
+      </div>
+      <iframe class="resume-iframe" src="vinay_prajapat_resume.html" title="Vinay Prajapat Resume"></iframe>
+    </div>
+    <div class="resume-actions">
+      <a class="btn-outline" href="vinay_prajapat_resume.html" target="_blank">Open Full Page</a>
+      <a class="btn-primary" href="vinay_prajapat_resume.html" onclick="window.open(this.href);return false;">Download / Print PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label">Get In Touch</div>
+    <div class="section-heading">Contact Me</div>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div>
+        <p style="font-size:14px;color:#64748b;line-height:1.8;margin-bottom:0.5rem">I'm actively looking for Cyber Security roles in the US and EU. Whether you have a position, a project, or just want to connect — feel free to reach out.</p>
+        <div class="contact-info">
+          <div class="contact-item">
+            <i class="ti ti-mail"></i>
+            <div class="contact-detail">
+              <div class="contact-label">Email</div>
+              <div class="contact-value"><a href="mailto:vinayprajapat567@gmail.com">vinayprajapat567@gmail.com</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-phone"></i>
+            <div class="contact-detail">
+              <div class="contact-label">Phone</div>
+              <div class="contact-value">+91 7014118643</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-brand-linkedin"></i>
+            <div class="contact-detail">
+              <div class="contact-label">LinkedIn</div>
+              <div class="contact-value"><a href="https://linkedin.com/in/vinay-prajapat-a12502209" target="_blank">vinay-prajapat-a12502209</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <i class="ti ti-map-pin"></i>
+            <div class="contact-detail">
+              <div class="contact-label">Location</div>
+              <div class="contact-value">Bengaluru, India · Open to US / EU</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input class="form-input" type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Subject</label>
+          <input class="form-input" type="text" placeholder="Job Opportunity / Collaboration">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Message</label>
+          <textarea class="form-input" placeholder="Tell me about the role or project..."></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;border:none;font-family:inherit">Send Message</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-text">© 2025 <span>Vinay Prajapat</span> · Cyber Security Analyst · VAPT Specialist · Red Team Operator</div>
+</footer>
+
+<script>
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => { if (window.scrollY >= s.offsetTop - 80) current = s.id; });
+    navLinks.forEach(a => { a.classList.toggle('active', a.getAttribute('href') === '#' + current); });
+  });
+
+  const hamburger = document.getElementById('hamburger');
+  const mobileMenu = document.getElementById('mobileMenu');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+  });
+  document.querySelectorAll('.mob-link').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>
